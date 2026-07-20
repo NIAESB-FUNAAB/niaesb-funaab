@@ -26,7 +26,6 @@ const LecturersPage = () => {
     { name: "Dr. ADEPOJU O. Victor", title: "Dr.", specialty: "Power & Machinery Eng.", img: adepojuImg }
   ];
 
-  // Soft cascading animation
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,8 +42,6 @@ const LecturersPage = () => {
   return (
     <div className="bg-white min-h-screen py-20 relative overflow-hidden font-sans">
       
-      {/* --- BACKGROUND MARQUEE ANIMATION --- */}
-      {/* This creates a giant, slow-moving watermark in the background so the page never feels empty */}
       <div className="absolute top-40 left-0 w-[200vw] flex opacity-[0.03] pointer-events-none select-none z-0">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
@@ -97,10 +94,8 @@ const LecturersPage = () => {
             <motion.div 
               variants={itemVariants}
               key={index} 
-              // Stagger every even card downwards slightly on large screens for a dynamic layout
               className={`group flex flex-col items-center cursor-pointer ${index % 2 !== 0 ? 'lg:mt-12' : ''}`}
             >
-              {/* Image Container - The "Arch" Design */}
               <div className="relative w-full aspect-[4/5] rounded-t-[5rem] rounded-b-2xl overflow-hidden bg-gray-100 border-[6px] border-white shadow-[0_15px_35px_rgba(4,51,26,0.08)] group-hover:shadow-[0_25px_50px_rgba(16,185,129,0.15)] group-hover:-translate-y-4 transition-all duration-500 ease-out z-10">
                 
                 <img 
@@ -110,14 +105,10 @@ const LecturersPage = () => {
                     e.target.onerror = null; 
                     e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(faculty.name) + '&background=f0fdf4&color=04331A&size=512';
                   }}
-                  // Image starts grayscale and turns full color on hover, while scaling up
                   className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-out"
                 />
                 
-                {/* Subtle gradient wash over the image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#04331A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Floating Title Tag on Hover */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-lg">
                   <span className="text-xs font-black text-[#04331A] uppercase tracking-widest whitespace-nowrap">
                     {faculty.title}
@@ -125,13 +116,11 @@ const LecturersPage = () => {
                 </div>
               </div>
               
-              {/* Text Content */}
               <div className="mt-6 flex flex-col items-center w-full px-2 z-0">
                 <h3 className="text-xl sm:text-2xl font-black text-[#04331A] text-center tracking-tight group-hover:text-[#10B981] transition-colors duration-300">
                   {faculty.name}
                 </h3>
                 
-                {/* Animated Green Underline */}
                 <div className="w-8 h-1 bg-[#04331A] mt-3 rounded-full group-hover:w-full group-hover:bg-[#10B981] transition-all duration-500 ease-out"></div>
                 
                 <p className="text-sm font-semibold text-gray-500 text-center mt-3 leading-snug group-hover:text-gray-900 transition-colors duration-300">

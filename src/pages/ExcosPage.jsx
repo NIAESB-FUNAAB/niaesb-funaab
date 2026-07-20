@@ -1,14 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiAward, FiBookOpen, FiUser, FiStar, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
-
-// ==========================================
-// IMAGE IMPORTS
-// ==========================================
-
 // Hero Group Image
 import excoGroupImg from '../assets/executives/exco.jpg';
-
 // Executives
 import ogbonImg from '../assets/executives/ogbon.jpg';
 import ezekielImg from '../assets/executives/olasope.jpg';
@@ -20,23 +14,17 @@ import opeyemiImg from '../assets/executives/nejo.jpg';
 import azeezatImg from '../assets/executives/madamidola.jpg';
 import iyanuoluwaImg from '../assets/executives/akintola.jpg';
 import joshuaImg from '../assets/executives/oladapo.jpg';
-
 // Past Presidents
 import mubarakImg from '../assets/presidents/mubarak.jpg';
 import rhodaImg from '../assets/presidents/rhoda.jpg';
 import temitopeImg from '../assets/presidents/temitope.jpg';
 import samuelImg from '../assets/presidents/samuel.jpg';
-
-// Class Representatives (HOCs)
+// HOCs
 import akintolaImg from '../assets/executives/akintola.jpg';
 import gbengaImg from '../assets/hoc/gbenga.jpg';
 import timilehinImg from '../assets/hoc/timilehin.jpg';
 
-
-// ==========================================
 // DATA ARRAYS
-// ==========================================
-
 const topExecutives = [
   { name: "Ogbon-Otan Matthew", nickname: "Ogbon", role: "President", image: ogbonImg, quote: "Leadership is action, not position." },
   { name: "Nwaire Chibuzor John", nickname: "Chibest", role: "Vice President", image: chibuzorImg, quote: "Empowering the next generation." },
@@ -68,9 +56,7 @@ const hocs = [
   { level: "100L", name: "Awaiting Election", image: null, status: "Pending" },
 ];
 
-// ==========================================
 // ANIMATION VARIANTS
-// ==========================================
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
@@ -81,10 +67,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
 };
 
-// ==========================================
 // CUSTOM COMPONENTS
-// ==========================================
-
 const BackgroundPattern = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
     <svg className="absolute w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
@@ -114,34 +97,25 @@ const SocialLinks = () => (
   </div>
 );
 
-// ==========================================
 // MAIN PAGE COMPONENT
-// ==========================================
-
 const ExcosPage = () => {
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-[#10B981] selection:text-white relative pb-32">
       <BackgroundPattern />
 
-      {/* 1. HERO SECTION WITH IMAGE & SOFT MOTION */}
+      {/*HERO SECTION*/}
       <div className="relative w-full min-h-[75vh] flex flex-col items-center justify-center text-center overflow-hidden pt-32 pb-24 mb-20">
-        
-        {/* Soft Motion Background Image */}
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${excoGroupImg})` }}
         />
-
-        {/* Dynamic Green Gradients for Readability */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#07562C]/95 via-[#07562C]/80 to-[#10B981]/50 mix-blend-multiply"></div>
-        <div className="absolute inset-0 z-0 bg-black/20"></div> {/* Contrast Booster */}
+        <div className="absolute inset-0 z-0 bg-black/20"></div>
         
-        {/* Bottom Fade to White */}
         <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-0"></div>
 
-        {/* Hero Content */}
         <div className="relative z-10 px-6 max-w-7xl mx-auto flex flex-col items-center mt-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -176,7 +150,7 @@ const ExcosPage = () => {
         </div>
       </div>
 
-      {/* 2. TEAM ICONIC BREAKOUT */}
+      {/*TEAM ICONIC BREAKOUT */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-12 mb-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -202,7 +176,7 @@ const ExcosPage = () => {
         </motion.div>
       </div>
 
-      {/* 3. PRESIDENTIAL SPOTLIGHT */}
+      {/* PRESIDENTIAL SPOTLIGHT */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 mb-32">
         <motion.div 
           variants={staggerContainer}
@@ -229,8 +203,6 @@ const ExcosPage = () => {
                   onError={(e) => e.target.style.opacity = 0}
                 />
               </div>
-
-              {/* Content Side: NAME -> NICKNAME -> POSITION */}
               <div className="md:w-3/5 p-8 md:p-10 flex flex-col justify-center relative bg-white z-20">
                 <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-2">
                   {exco.name}
@@ -256,7 +228,7 @@ const ExcosPage = () => {
         </motion.div>
       </div>
 
-      {/* 4. EXECUTIVES GRID */}
+      {/* EXECUTIVES GRID */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 mb-40">
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px bg-gray-200 flex-grow"></div>
@@ -277,7 +249,7 @@ const ExcosPage = () => {
               variants={fadeUp}
               className="group bg-white rounded-3xl overflow-hidden shadow-lg shadow-gray-100/50 border border-gray-100 hover:shadow-2xl hover:shadow-[#10B981]/20 transition-all duration-500 hover:-translate-y-3 relative flex flex-col"
             >
-              {/* Image Header */}
+
               <div className="h-72 relative overflow-hidden bg-gray-100">
                 <div className="absolute inset-0 flex items-center justify-center text-gray-300">
                    <FiUser className="text-6xl opacity-30" />
@@ -290,7 +262,6 @@ const ExcosPage = () => {
                 />
               </div>
               
-              {/* Content Body: NAME -> NICKNAME -> POSITION */}
               <div className="p-8 bg-white flex-grow flex flex-col justify-between relative z-20">
                 <div>
                   <h3 className="text-2xl font-black text-gray-900 leading-tight mb-2">
@@ -315,7 +286,7 @@ const ExcosPage = () => {
         </motion.div>
       </div>
 
-      {/* 5. HALL OF FAME (Past Presidents) */}
+      {/* HALL OF FAME (Past Presidents) */}
       <div className="bg-[#07562C] pt-32 pb-40 relative overflow-hidden z-10">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-64 bg-[#10B981]/20 rounded-full blur-[100px] pointer-events-none"></div>
@@ -346,7 +317,6 @@ const ExcosPage = () => {
                 variants={fadeUp}
                 className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 text-center hover:bg-white/10 transition-all duration-500 group overflow-hidden"
               >
-                {/* Background Glow on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#10B981]/0 to-[#10B981]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                 <div className="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-[#10B981]/50 group-hover:border-[#10B981] mb-8 relative shadow-2xl transition-colors duration-500">
@@ -370,11 +340,10 @@ const ExcosPage = () => {
         </div>
       </div>
 
-      {/* 6. CLASS REPRESENTATIVES (HOCs) */}
+      {/* HOCs */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 -mt-20 relative z-20">
         <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-gray-100 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] relative overflow-hidden">
           
-          {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 

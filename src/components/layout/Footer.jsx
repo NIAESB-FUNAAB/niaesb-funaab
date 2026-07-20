@@ -139,7 +139,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Copyright & Socials */}
+        {/*Copyright & Socials */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10">
           <p className="text-gray-500 text-sm font-medium text-center md:text-left">
             &copy; {currentYear} NIAESB. All rights reserved. Built for the future.

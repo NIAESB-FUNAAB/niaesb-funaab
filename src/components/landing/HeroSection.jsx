@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-// Import your image here:
 import tractorImg from '../../assets/landing/hero.png';
 
 const HeroSection = () => {
@@ -18,71 +17,80 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-[#FAFAFA] min-h-[calc(100vh-80px)] flex items-center overflow-hidden pt-12 lg:py-0 border-b border-gray-200">
+    <section className="relative bg-[#FAFAFA] pt-32 pb-12 lg:pt-40 lg:pb-24 overflow-hidden border-b border-gray-100">
       
-      {/* Subtle Grid Background */}
-      <div className="absolute inset-0 z-0 opacity-[0.15]" 
-           style={{ backgroundImage: 'radial-gradient(#07562C 1.5px, transparent 1.5px)', backgroundSize: '40px 40px' }}>
+      {/*Engineering Background */}
+      <div className="absolute inset-0 z-0 opacity-[0.04]" 
+           style={{ backgroundImage: 'linear-gradient(#07562C 1px, transparent 1px), linear-gradient(90deg, #07562C 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       </div>
+      
+      {/* Glows */}
+      <div className="absolute top-20 left-10 w-[300px] h-[300px] rounded-full bg-green-200/40 blur-[90px] pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] rounded-full bg-[#10B981]/15 blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 relative z-10 w-full">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Text (7 columns) */}
+          {/* Left Column*/}
           <motion.div 
-            className="lg:col-span-7 text-left lg:text-left"
+            className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-[42px] font-extrabold tracking-tight text-[#1a2b21] mb-5 leading-[1.2]"
+              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#1a2b21] mb-6 leading-[1.15]"
             >
-              Innovating the <span className="text-[#10B981]">Future</span> of Agricultural and Bio-resources Engineering in FUNAAB.
+              Innovating the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Future</span> of Agricultural and Bio-resources Engineering in FUNAAB.
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
-              className="text-base sm:text-[17px] text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium pr-0 lg:pr-10"
+              className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl leading-relaxed font-medium lg:pr-10"
             >
               Join the brightest student Engineers at the Federal University of Agriculture, Abeokuta. We are bridging the gap in agricultural technology, farm mechanization and sustainable bio-resources.
             </motion.p>
             
             <motion.div 
               variants={itemVariants} 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
               <a 
                 href="#join" 
-                className="group inline-flex items-center justify-center gap-2 bg-[#07562C] text-white px-7 py-3 rounded-lg font-bold text-[15px] hover:bg-[#054020] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 bg-[#07562C] text-white px-8 py-3.5 rounded-xl font-bold text-[15px] hover:bg-[#054020] transition-all duration-300 shadow-[0_8px_25px_rgba(7,86,44,0.25)] hover:shadow-[0_12px_30px_rgba(7,86,44,0.35)] hover:-translate-y-1"
               >
                 Join Us
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                <FiArrowRight className="text-lg group-hover:translate-x-1.5 transition-transform" />
               </a>
               <a 
                 href="#pay-dues" 
-                className="inline-flex items-center justify-center bg-white text-[#07562C] border border-[#07562C] px-7 py-3 rounded-lg font-bold text-[15px] hover:bg-gray-50 transition-all duration-300 shadow-sm"
+                className="inline-flex items-center justify-center bg-white text-[#07562C] border-2 border-[#07562C] px-8 py-3.5 rounded-xl font-bold text-[15px] hover:bg-green-50 transition-all duration-300 shadow-sm hover:-translate-y-0.5"
               >
                 Pay Dues
               </a>
             </motion.div>
           </motion.div>
 
-{/* Right Column: Neat, Unframed, Floating Image */}
+          {/* Right Column*/}
           <motion.div 
-            className="lg:col-span-5 mt-16 lg:mt-0 flex justify-center lg:justify-end relative"
+            className="lg:col-span-5 flex justify-center lg:justify-end relative mt-8 lg:mt-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            <img 
-              src={tractorImg}
-              alt="Agricultural Engineering Tractor" 
-              // 'w-full max-w-sm' keeps it responsive but prevents it from blowing up.
-              // 'object-contain' ensures the whole image is visible without being cropped.
-              className="w-full max-w-sm h-auto object-contain"
-            />
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-md"
+            >
+              <img 
+                src={tractorImg}
+                alt="Agricultural Engineering Tractor" 
+                className="relative w-full h-auto object-contain drop-shadow-2xl rounded-2xl"
+              />
+            </motion.div>
           </motion.div>
 
         </div>

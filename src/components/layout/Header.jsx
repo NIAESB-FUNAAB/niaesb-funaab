@@ -16,25 +16,19 @@ const Header = () => {
   const { scrollY } = useScroll();
   const location = useLocation();
 
-  // Detect scroll to shrink/adjust the floating nav
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
   });
-
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  // Enhanced Dropdown Data with Icons and Descriptions
   const quickAccessLinks = [
     { name: 'Blog', to: '/blog', icon: <FiFileText />, desc: "Latest news & articles" },
     { name: 'E-Library', to: '/library', icon: <FiBookOpen />, desc: "Academic resources" },
     { name: 'Lecturers', to: '/lecturers', icon: <FiUsers />, desc: "Faculty directory" },
     { name: 'Pay Dues', to: '/pay-dues', icon: <FiCreditCard />, desc: "Online payment portal" },
   ];
-
-  // Added 'Executives' to the main navigation
   const mainLinks = [
     { name: 'Home', to: '/' },
     { name: 'About', to: '/about' },
@@ -43,9 +37,7 @@ const Header = () => {
 
   return (
     <>
-      {/* ==========================================
-          DESKTOP & FLOATING HEADER
-          ========================================== */}
+      {/*DESKTOP & FLOATING HEADER*/}
       <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 md:px-8 pt-4 md:pt-6 pointer-events-none">
         <motion.div 
           initial={{ y: -100, opacity: 0 }}
@@ -116,7 +108,7 @@ const Header = () => {
                 </motion.div>
               </button>
 
-              {/* Advanced Dropdown Panel (Mega Menu) */}
+              {/* Dropdown Panel */}
               <AnimatePresence>
                 {isDropdownOpen && (
                   <motion.div 
@@ -172,9 +164,8 @@ const Header = () => {
         </motion.div>
       </header>
 
-      {/* ==========================================
-          MOBILE FULL-SCREEN MENU
-          ========================================== */}
+
+      {/*MOBILE FULL-SCREEN MENU*/}
       <AnimatePresence>
         {isOpen && (
           <motion.div 

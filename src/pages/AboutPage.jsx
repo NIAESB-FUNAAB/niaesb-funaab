@@ -8,14 +8,11 @@ import {
   FiCpu, FiGlobe, FiTrendingUp 
 } from 'react-icons/fi';
 
-// ==========================================
 // IMAGE IMPORTS (Local Assets)
-// ==========================================
 import buildingBg from '../assets/about/building.jpg';
 import upskillImg from '../assets/about/upskill.jpg';
 import footballImg from '../assets/about/football.jpg';
 import handsonImg from '../assets/about/handson.jpg';
-
 // Executive Avatars for the CTA section
 import ogbonImg from '../assets/executives/ogbon.jpg';
 import chibuzorImg from '../assets/executives/nwaire.jpg';
@@ -24,11 +21,7 @@ import oluwatobilobaImg from '../assets/executives/adedayo.jpg';
 const AboutPage = () => {
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
-  // ==========================================
   // PAGE DATA
-  // ==========================================
-  
   const figures = [
     { label: "Active Members", value: "250+", icon: <FiUsers /> },
     { label: "Executive Leaders", value: "15+", icon: <FiAward /> },
@@ -57,10 +50,7 @@ const AboutPage = () => {
     { label: "Industry Readiness", percentage: 85, icon: <FiTarget /> },
   ];
 
-  // ==========================================
   // ANIMATION VARIANTS
-  // ==========================================
-  
   const customEase = [0.22, 1, 0.36, 1];
 
   const fadeUp = {
@@ -86,9 +76,7 @@ const AboutPage = () => {
   return (
     <div className="bg-[#FAFAFA] min-h-screen pb-24 overflow-hidden font-sans selection:bg-[#10B981] selection:text-white">
       
-      {/* ==========================================
-          1. IMMERSIVE HERO SECTION
-          ========================================== */}
+      {/*HERO SECTION*/}
       <div className="relative min-h-[90vh] flex items-center justify-center pt-20 pb-32 overflow-hidden">
         {/* Parallax Background */}
         <motion.div 
@@ -134,9 +122,7 @@ const AboutPage = () => {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 relative z-20">
         
-        {/* ==========================================
-            2. FLOATING GLASS STATS
-            ========================================== */}
+        {/*FLOATING GLASS STATS*/}
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
@@ -159,9 +145,7 @@ const AboutPage = () => {
           ))}
         </motion.div>
 
-        {/* ==========================================
-            3. DYNAMIC WHO WE ARE (Broken Grid)
-            ========================================== */}
+        {/* DYNAMIC WHO WE ARE*/}
         <div className="grid lg:grid-cols-12 gap-16 items-center mb-40">
           <motion.div 
             variants={fadeLeft}
@@ -213,9 +197,7 @@ const AboutPage = () => {
           </motion.div>
         </div>
 
-        {/* ==========================================
-            4. BENTO BOX: VISION & MISSION
-            ========================================== */}
+        {/* VISION & MISSION*/}
         <div className="grid md:grid-cols-2 gap-6 mb-40">
           <motion.div 
             variants={fadeUp}
@@ -259,9 +241,7 @@ const AboutPage = () => {
           </motion.div>
         </div>
 
-        {/* ==========================================
-            5. CORE VALUES GRID 
-            ========================================== */}
+        {/*CORE VALUES*/}
         <div className="mb-40">
           <div className="text-center mb-16">
             <h2 className="text-sm font-black tracking-[0.2em] text-[#10B981] uppercase mb-4">The Standard</h2>
@@ -291,9 +271,7 @@ const AboutPage = () => {
           </motion.div>
         </div>
 
-        {/* ==========================================
-            6. LEGACY TIMELINE 
-            ========================================== */}
+        {/*LEGACY */}
         <div className="mb-40">
           <div className="bg-white rounded-[3rem] p-10 md:p-20 border border-gray-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-gray-50 rounded-full blur-3xl -z-10 -translate-y-1/2 translate-x-1/2"></div>
@@ -333,9 +311,7 @@ const AboutPage = () => {
           </div>
         </div>
 
-        {/* ==========================================
-            7. IMPACT BARS 
-            ========================================== */}
+        {/*IMPACT*/}
         <motion.div 
           variants={fadeUp}
           initial="hidden"
@@ -386,9 +362,7 @@ const AboutPage = () => {
           </div>
         </motion.div>
 
-        {/* ==========================================
-            8. EXECUTIVE TEAM CTA
-            ========================================== */}
+        {/* EXECUTIVE TEAM */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -419,7 +393,6 @@ const AboutPage = () => {
 
           <div className="relative z-10 md:w-2/5 flex justify-center md:justify-end">
             <Link to="/excos" className="flex -space-x-6 relative hover:scale-105 transition-transform duration-500 cursor-pointer">
-              {/* REAL IMPORTED IMAGES USED HERE */}
               <img className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-[#07562C] object-cover relative z-30 shadow-2xl" src={ogbonImg} alt="Ogbon-Otan Matthew - President" />
               <img className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-[#07562C] object-cover relative z-20 shadow-2xl" src={chibuzorImg} alt="Nwaire Chibuzor - Vice President" />
               <img className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-[#07562C] object-cover relative z-10 shadow-2xl" src={oluwatobilobaImg} alt="Adedayo Oluwatobiloba - Executive" />

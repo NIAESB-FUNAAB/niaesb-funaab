@@ -4,21 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ExcosSection = () => {
   const [showAll, setShowAll] = useState(false);
 
-  // Array of 10 Executives
   const excosData = [
     { id: 1, name: 'Emmanuel O.', role: 'President', color: 'bg-green-700' },
     { id: 2, name: 'Sarah A.', role: 'Vice President', color: 'bg-green-600' },
     { id: 3, name: 'David K.', role: 'General Secretary', color: 'bg-green-500' },
     { id: 4, name: 'Aisha M.', role: 'Financial Secretary', color: 'bg-emerald-600' },
-    { id: 5, name: 'John B.', role: 'Treasurer', color: 'bg-emerald-500' },
-    { id: 6, name: 'Grace T.', role: 'Public Relations Officer', color: 'bg-teal-600' },
-    { id: 7, name: 'Victor E.', role: 'Director of Socials', color: 'bg-teal-500' },
-    { id: 8, name: 'Mary S.', role: 'Welfare Director', color: 'bg-green-600' },
-    { id: 9, name: 'Daniel F.', role: 'Academic Director', color: 'bg-green-700' },
-    { id: 10, name: 'Ruth O.', role: 'Asst. General Secretary', color: 'bg-emerald-600' },
   ];
 
-  // Logic to slice the array based on state
   const displayedExcos = showAll ? excosData : excosData.slice(0, 3);
 
   return (
@@ -34,7 +26,6 @@ const ExcosSection = () => {
           </p>
         </div>
 
-        {/* Framer Motion layout wrapper for the grid */}
         <motion.div 
           layout 
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center"
@@ -50,7 +41,7 @@ const ExcosSection = () => {
                 transition={{ duration: 0.3, type: "spring", stiffness: 100 }}
                 className="bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center"
               >
-                {/* Image Placeholder - Swap this div for an <img> tag when ready */}
+
                 <div className={`w-24 h-24 rounded-full ${exco.color} flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-inner`}>
                   {exco.name.charAt(0)}
                 </div>
@@ -62,7 +53,6 @@ const ExcosSection = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* The Toggle Button */}
         <motion.div layout className="mt-12 flex justify-center">
           <button 
             onClick={() => setShowAll(!showAll)}

@@ -10,6 +10,7 @@ const LandingPage = () => {
       <HeroSection />
       <AboutSection />
       <QuickAccess/>
+
     </main>
   );
 };

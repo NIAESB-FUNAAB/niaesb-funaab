@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { FiShield, FiCreditCard, FiLock, FiCheckCircle } from 'react-icons/fi';
 
 const PayDuesPage = () => {
-  // Animation Variants
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -22,21 +21,19 @@ const PayDuesPage = () => {
       {/* --- HERO SECTION --- */}
       <div className="relative bg-[#04331A] min-h-[85vh] flex items-center overflow-hidden z-0">
         
-        {/* Background Tech Grid & Glow */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
         <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-[#10B981] rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#10B981] rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 py-20 lg:py-0">
           
-          {/* LEFT COLUMN: Copy & Call to Action */}
+          {/* Left Call to Action */}
           <motion.div 
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
             className="flex flex-col items-start"
           >
-            {/* Security Badge */}
             <motion.div variants={fadeUp} className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6">
               <FiLock className="text-[#10B981]" size={14} />
               <span className="text-white text-xs font-bold tracking-widest uppercase">Official Payment Portal</span>
@@ -51,7 +48,6 @@ const PayDuesPage = () => {
               Securely pay your NIAESB departmental dues. Your contributions directly fund student projects, tech workshops, and the advancement of Agricultural Engineering at FUNAAB.
             </motion.p>
 
-            {/* Action Buttons */}
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <button className="group relative flex items-center justify-center gap-3 bg-[#10B981] hover:bg-[#0ea5e9] text-[#04331A] font-black text-base px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:-translate-y-1 overflow-hidden">
                 <span className="relative z-10 flex items-center gap-2">
@@ -66,7 +62,6 @@ const PayDuesPage = () => {
               </button>
             </motion.div>
 
-            {/* Trust Indicators */}
             <motion.div variants={fadeUp} className="flex items-center gap-6 mt-12 opacity-80">
               <div className="flex items-center gap-2 text-gray-300 text-sm font-semibold">
                 <FiShield className="text-[#10B981]" size={18} />
@@ -79,20 +74,18 @@ const PayDuesPage = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Interactive Floating Receipt Card */}
+          {/* RIGHT Receipt Card */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="relative hidden md:flex justify-center lg:justify-end perspective-1000"
           >
-            {/* The Floating Animation Wrapper */}
             <motion.div 
               animate={{ y: [-10, 10, -10] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
               className="relative w-full max-w-[400px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-8 shadow-2xl transform rotate-y-[-10deg] rotate-x-[5deg]"
             >
-              {/* Card Header */}
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-1">Approved Dues</p>
@@ -103,7 +96,6 @@ const PayDuesPage = () => {
                 </div>
               </div>
 
-              {/* Fee Structure - Simplified */}
               <div className="space-y-4 mb-8 mt-6">
                 <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
                   <span className="text-gray-200 font-bold tracking-wider uppercase text-sm">Fresher</span>
@@ -116,7 +108,6 @@ const PayDuesPage = () => {
                 </div>
               </div>
 
-              {/* Decorative Barcode / Footer */}
               <div className="mt-6 pt-6 border-t border-white/20 flex flex-col items-center">
                 <div className="flex gap-1 h-8 opacity-50 w-full justify-center">
                   {[...Array(24)].map((_, i) => (

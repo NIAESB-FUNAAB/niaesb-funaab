@@ -1,109 +1,130 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiEdit3, FiBookOpen, FiUsers, FiCreditCard } from 'react-icons/fi';
+import { FiEdit3, FiBookOpen, FiUsers, FiCreditCard, FiArrowUpRight } from 'react-icons/fi';
 
 const QuickAccess = () => {
-  // Staggered animation variants for the grid entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
-  };
+  const [isPaused, setIsPaused] = useState(false);
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.5, ease: "easeOut" } 
-    }
-  };
-
-  // Data array to keep our JSX clean
   const accessCards = [
     {
       id: 1,
       title: 'Blogs & News',
       description: 'Catch up on the latest technical articles, events, and updates from the FUNAAB chapter.',
-      icon: <FiEdit3 size={32} />,
+      icon: <FiEdit3 size={26} />,
       link: '#blogs',
-      delay: 0.1,
     },
     {
       id: 2,
       title: 'E-Library',
       description: 'Access past questions, research materials, and core engineering textbooks.',
-      icon: <FiBookOpen size={32} />,
+      icon: <FiBookOpen size={26} />,
       link: '#library',
-      delay: 0.2,
     },
     {
       id: 3,
       title: 'Lecturers',
       description: 'View profiles, office hours, and contact information for our esteemed faculty.',
-      icon: <FiUsers size={32} />,
+      icon: <FiUsers size={26} />,
       link: '#lecturers',
-      delay: 0.3,
     },
     {
       id: 4,
       title: 'Pay Dues',
       description: 'Securely process your annual association dues and generate your receipt.',
-      icon: <FiCreditCard size={32} />,
+      icon: <FiCreditCard size={26} />,
       link: '#pay-dues',
-      delay: 0.4,
-    }
+    },
   ];
 
+  const loopCards = [...accessCards, ...accessCards, ...accessCards];
+
   return (
-    <section id="quick-access" className="py-24 bg-gray-50 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="quick-access" className="py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-12">
         
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-            Quick <span className="text-niaesb-green">Access</span>
+        {/* Header */}
+        <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 mb-4 font-mono text-xs tracking-[0.2em] text-[#07562C]/80 uppercase font-semibold"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#07562C]" />
+           STUDENT RESOURCES
+          </motion.div>
+
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+            Quick <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Access</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-gray-600 font-medium max-w-2xl mx-auto">
             Everything you need for a smooth academic session, right at your fingertips.
           </p>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+      </div>
+
+      {/* Infinite Motion Slider */}
+      <div 
+        className="relative w-full overflow-hidden flex py-4"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Left & Right Edge Fade Gradients */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        <motion.div
+          className="flex gap-6 pl-6"
+          animate={{
+            x: isPaused ? undefined : ['0%', '-33.333%']
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 28,
+              ease: "linear",
+            }
+          }}
+          style={{ display: 'flex', width: 'max-content' }}
         >
-          {accessCards.map((card) => (
+          {loopCards.map((card, idx) => (
             <motion.a
-              key={card.id}
+              key={`${card.id}-${idx}`}
               href={card.link}
-              variants={cardVariants}
               whileHover={{ 
-                scale: 1.05,
-                y: -5,
+                y: -8,
+                scale: 1.02,
+                boxShadow: "0px 14px 35px rgba(7, 86, 44, 0.1)",
+                borderColor: "rgba(7, 86, 44, 0.3)",
                 transition: { duration: 0.2 }
               }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-niaesb-green/30 flex flex-col items-center text-center group transition-all duration-300"
+              className="w-[300px] sm:w-[325px] shrink-0 bg-white rounded-3xl p-8 border border-gray-100 flex flex-col items-start text-left cursor-pointer transition-colors duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
             >
-              {/* Icon Container with a background that fills in on hover */}
-              <div className="w-16 h-16 rounded-full bg-niaesb-green/10 text-niaesb-green flex items-center justify-center mb-6 group-hover:bg-niaesb-green group-hover:text-white transition-colors duration-300">
+              {/* Animated Icon Container on Card Hover */}
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: -5, backgroundColor: '#07562C', color: '#ffffff' }}
+                transition={{ duration: 0.2 }}
+                className="w-16 h-16 rounded-2xl bg-green-50 text-[#07562C] flex items-center justify-center mb-6 shadow-sm"
+              >
                 {card.icon}
-              </div>
-              
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-niaesb-green transition-colors duration-300">
+              </motion.div>
+
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {card.title}
               </h3>
-              
-              <p className="text-gray-600 text-sm leading-relaxed">
+
+              <p className="text-gray-500 text-sm leading-relaxed font-medium mb-6 flex-grow">
                 {card.description}
               </p>
+
+              <span className="mt-auto inline-flex items-center gap-1 text-sm font-bold text-[#07562C]">
+                Explore <FiArrowUpRight size={16} className="ml-1" />
+              </span>
             </motion.a>
           ))}
         </motion.div>
-
       </div>
     </section>
   );
