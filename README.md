@@ -1,16 +1,25 @@
-# React + Vite
+# NIAESB-FUNAAB Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The official web platform for the **Nigerian Association of Agricultural and Bioresources Engineering Students (NIAESB)**, Federal University of Agriculture, Abeokuta (FUNAAB) chapter.
 
-Currently, two official plugins are available:
+![Live Status](https://img.shields.io/badge/status-live-success)
+![Vite](https://img.shields.io/badge/frontend-React%20%2F%20Vite-blue)
+![Tailwind CSS](https://img.shields.io/badge/styling-Tailwind%20CSS-38bdf8)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Links
+* **Live Demo:** [niaesbfunaab.dev](https://niaesbfunaab.dev)
+* **GitHub Repository:** [NIAESB-FUNAAB/niaesb-funaab](https://github.com/NIAESB-FUNAAB/niaesb-funaab)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+This project is built using modern, lightning-fast frontend technologies:
+* **Framework:** React.js (via Vite)
+* **Styling:** Tailwind CSS
+* **Icons:** React Icons / Lucide
+* **Deployment:** Netlify
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+Version 1.0 built and managed by [Timilehin Olajolo](https://github.com/timilehinolajolo)
