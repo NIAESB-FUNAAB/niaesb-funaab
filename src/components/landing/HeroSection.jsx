@@ -18,7 +18,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-[#FAFAFA] min-h-[calc(100vh-80px)] flex items-center overflow-hidden py-12 lg:py-0 border-b border-gray-200">
+    <section className="relative bg-[#FAFAFA] min-h-[calc(100vh-80px)] flex items-center overflow-hidden pt-12 lg:py-0 border-b border-gray-200">
       
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 z-0 opacity-[0.15]" 
@@ -30,7 +30,7 @@ const HeroSection = () => {
           
           {/* Left Column: Text (7 columns) */}
           <motion.div 
-            className="lg:col-span-7 text-center lg:text-left"
+            className="lg:col-span-7 text-left lg:text-left"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
