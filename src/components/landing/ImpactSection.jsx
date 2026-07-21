@@ -28,10 +28,10 @@ const ImpactSection = () => {
   });
 
   const stats = [
-    { id: 1, label: 'Active Members', value: 850, suffix: '+' },
+    { id: 1, label: 'Active Members', value: 250, suffix: '+' },
     { id: 2, label: 'Department Executives', value: 10, suffix: '' },
     { id: 3, label: 'Annual Events', value: 12, suffix: '+' },
-    { id: 4, label: 'Years of Impact', value: 25, suffix: '+' },
+    { id: 4, label: 'Years of Impact', value: 15, suffix: '+' },
   ];
 
   // Choreographed Stagger Container
@@ -75,14 +75,15 @@ const ImpactSection = () => {
   };
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden perspective-1000">
+    <section className="relative py-24 bg-white overflow-hidden perspective-1000 font-mono">
       
       {/* Very subtle architectural dot pattern for texture on white */}
       <div className="absolute inset-0 z-0 opacity-[0.03]" 
            style={{ backgroundImage: 'radial-gradient(#07562C 2px, transparent 2px)', backgroundSize: '36px 36px' }}>
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+      {/* Standardized Container Sizing (Matched with Hero & QuickAccess) */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -91,7 +92,7 @@ const ImpactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight"
+            className="text-4xl md:text-5xl font-extrabold text-[#04331A] tracking-tight"
           >
             Our Impact at a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Glance</span>
           </motion.h2>
@@ -100,7 +101,7 @@ const ImpactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 text-lg text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed"
+            className="mt-5 text-lg text-[#04331A]/70 max-w-2xl mx-auto font-medium leading-relaxed"
           >
             Decades of building agricultural engineering leaders, fostering community, and driving technical excellence.
           </motion.p>
@@ -139,7 +140,7 @@ const ImpactSection = () => {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                   transition={{ type: "spring", stiffness: 120, delay: 0.3 }}
-                  className="text-5xl md:text-6xl font-black text-gray-900 mb-4 tracking-tighter flex items-center justify-center"
+                  className="text-5xl md:text-6xl font-black text-[#04331A] mb-4 tracking-tighter flex items-center justify-center"
                 >
                   {inView ? (
                     <AnimatedCounter from={0} to={stat.value} duration={2.5} inView={inView} />
@@ -153,7 +154,7 @@ const ImpactSection = () => {
                 <div className="overflow-hidden py-1">
                   <motion.p 
                     variants={textRevealVariants}
-                    className="text-gray-500 font-bold text-sm md:text-base uppercase tracking-[0.2em]"
+                    className="text-[#04331A]/70 font-bold text-sm md:text-base uppercase tracking-[0.2em]"
                   >
                     {stat.label}
                   </motion.p>

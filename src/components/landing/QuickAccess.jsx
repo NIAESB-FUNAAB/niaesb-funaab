@@ -11,36 +11,38 @@ const QuickAccess = () => {
       title: 'Blogs & News',
       description: 'Catch up on the latest technical articles, events, and updates from the FUNAAB chapter.',
       icon: <FiEdit3 size={26} />,
-      link: '#blogs',
+      link: '/blog',
     },
     {
       id: 2,
       title: 'E-Library',
       description: 'Access past questions, research materials, and core engineering textbooks.',
       icon: <FiBookOpen size={26} />,
-      link: '#library',
+      link: '/library',
     },
     {
       id: 3,
       title: 'Lecturers',
       description: 'View profiles, office hours, and contact information for our esteemed faculty.',
       icon: <FiUsers size={26} />,
-      link: '#lecturers',
+      link: '/lecturers',
     },
     {
       id: 4,
       title: 'Pay Dues',
       description: 'Securely process your annual association dues and generate your receipt.',
       icon: <FiCreditCard size={26} />,
-      link: '#pay-dues',
+      link: '/pay-dues',
     },
   ];
 
+  // Tripling the array to ensure a seamless infinite scrolling loop
   const loopCards = [...accessCards, ...accessCards, ...accessCards];
 
   return (
-    <section id="quick-access" className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-12">
+    <section id="quick-access" className="py-24 bg-white overflow-hidden font-mono">
+      {/* Standardized Container Sizing (Matched with Hero & About) */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12 relative z-10">
         
         {/* Header */}
         <div className="text-center">
@@ -48,16 +50,16 @@ const QuickAccess = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 mb-4 font-mono text-xs tracking-[0.2em] text-[#07562C]/80 uppercase font-semibold"
+            className="inline-flex items-center gap-2 mb-4 text-xs tracking-[0.2em] text-[#07562C]/80 uppercase font-bold"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#07562C]" />
-           STUDENT RESOURCES
+            STUDENT RESOURCES
           </motion.div>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#04331A] tracking-tight">
             Quick <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Access</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-[#04331A]/70 font-medium max-w-2xl mx-auto">
             Everything you need for a smooth academic session, right at your fingertips.
           </p>
         </div>
@@ -111,11 +113,11 @@ const QuickAccess = () => {
                 {card.icon}
               </motion.div>
 
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-[#04331A] mb-3">
                 {card.title}
               </h3>
 
-              <p className="text-gray-500 text-sm leading-relaxed font-medium mb-6 flex-grow">
+              <p className="text-[#04331A]/70 text-sm leading-relaxed font-medium mb-6 flex-grow">
                 {card.description}
               </p>
 

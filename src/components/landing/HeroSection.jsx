@@ -20,7 +20,7 @@ const HeroSection = () => {
     hidden: { 
       opacity: 0, 
       y: 100, 
-      rotateX: -40, // Adds a 3D hinge effect
+      rotateX: -40, 
       scale: 0.9 
     },
     visible: { 
@@ -60,7 +60,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[90vh] min-h-[600px] flex items-center overflow-hidden perspective-1000">
+    <section className="relative w-full h-[85vh] min-h-[600px] flex items-center overflow-hidden perspective-1000">
       
       {/* Video Background with slow zoom-out entrance */}
       <motion.div 
@@ -74,17 +74,18 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          poster="image_fff0e4.jpg"
           className="w-full h-full object-cover"
         >
           <source src={landingVideo} type="video/mp4" />
         </video>
       </motion.div>
 
-      {/* Complex Gradient Overlay: Darker on the left for text readability, sweeping to transparent */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />
+      {/* Complex Gradient Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-20 w-full mt-16 lg:mt-0">
+      {/* Main Container - Standardized Padding & Sizing */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full mt-16 lg:mt-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <motion.div 
@@ -93,14 +94,10 @@ const HeroSection = () => {
             initial="hidden"
             animate="visible"
           >
-            {/* 
-                Wrapping the H1 in a perspective container to handle the 3D rotateX properly.
-                overflow-hidden creates the "mask" so the text looks like it slides up from a floor.
-            */}
             <div className="overflow-hidden py-2 perspective-[1000px]">
               <motion.h1 
                 variants={textRevealVariants}
-                className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold tracking-tight text-white mb-4 leading-[1.1]"
+                className="font-mono text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F0FDF4] mb-6 leading-tight"
               >
                 Innovating the <br className="hidden sm:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#A7F3D0] inline-block">
@@ -112,34 +109,33 @@ const HeroSection = () => {
             
             <motion.p 
               variants={blurInVariants}
-              className="text-base sm:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed font-light tracking-wide"
+              className="font-mono text-lg text-[#F0FDF4]/80 mb-10 max-w-2xl leading-relaxed tracking-wide"
             >
-              Join the brightest minds at FUNAAB. We are engineering the next generation of farm mechanization, ecological management, and sustainable bio-resources.
+              Join the brightest minds. We are engineering the next generation of farm mechanization, ecological management, and sustainable bio-resources.
             </motion.p>
             
             <motion.div 
               variants={buttonGroupVariants} 
-              className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto font-mono"
             >
               {/* Primary Button */}
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#join" 
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[#10B981] text-white px-8 py-4 rounded-xl font-bold text-[16px] transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+                href="/auth" 
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[#10B981] text-[#F0FDF4] px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.3)]"
               >
-                {/* Shine effect on hover */}
-                <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                 <span>Join Us</span>
                 <FiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
               </motion.a>
 
               {/* Secondary Button */}
               <motion.a 
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(240,253,244,0.1)" }}
                 whileTap={{ scale: 0.95 }}
-                href="#pay-dues" 
-                className="inline-flex items-center justify-center bg-transparent backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-[16px] transition-all duration-300 hover:border-white/60"
+                href="/pay-dues" 
+                className="inline-flex items-center justify-center bg-transparent backdrop-blur-sm text-[#F0FDF4] border border-[#F0FDF4]/30 px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 hover:border-[#F0FDF4]/60"
               >
                 Pay Dues
               </motion.a>
@@ -148,6 +144,13 @@ const HeroSection = () => {
 
         </div>
       </div>
+      
+      {/* Required custom animation for the button sheen */}
+      <style>{`
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
     </section>
   );
 };

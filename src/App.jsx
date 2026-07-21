@@ -7,7 +7,8 @@ import BlogPage from './pages/BlogPage';
 import LecturersPage from './pages/LecturersPage';
 import LibraryPage from './pages/LibraryPage';
 import PayDues from './pages/PayDues';
-import ExcosPage from './pages/ExcosPage'; // <-- Imported the new page here
+import ExcosPage from './pages/ExcosPage';
+import Auth from './pages/Auth';
 
 function App() {
   return (
@@ -16,15 +17,15 @@ function App() {
 
       <div className="flex-grow">
         <Routes>
+
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/lecturers" element={<LecturersPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/pay-dues" element={<PayDues />} />
-          
-          {/* <-- Added the new route here */}
           <Route path="/excos" element={<ExcosPage />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
       </div>
 
