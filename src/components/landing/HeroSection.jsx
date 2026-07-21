@@ -1,95 +1,148 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-import tractorImg from '../../assets/landing/hero.png';
+import landingVideo from '../../assets/landing/landing-video.mp4';
 
 const HeroSection = () => {
+  // Staggering the entrance of each element
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+      transition: { 
+        staggerChildren: 0.2, 
+        delayChildren: 0.4 
+      },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  // 3D Flip & Mask Reveal for typography
+  const textRevealVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 100, 
+      rotateX: -40, // Adds a 3D hinge effect
+      scale: 0.9 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      rotateX: 0, 
+      scale: 1, 
+      transition: { 
+        type: "spring", 
+        damping: 18, 
+        stiffness: 80, 
+        duration: 1 
+      } 
+    },
+  };
+
+  // Smooth blur-in for the subtext
+  const blurInVariants = {
+    hidden: { opacity: 0, filter: "blur(15px)", y: 20 },
+    visible: { 
+      opacity: 1, 
+      filter: "blur(0px)", 
+      y: 0,
+      transition: { duration: 1, ease: "easeOut" }
+    }
+  };
+
+  // Explosive spring pop for the buttons
+  const buttonGroupVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: { type: "spring", damping: 12, stiffness: 150 }
+    }
   };
 
   return (
-    <section className="relative bg-[#FAFAFA] pt-32 pb-12 lg:pt-40 lg:pb-24 overflow-hidden border-b border-gray-100">
+    <section className="relative w-full h-[90vh] min-h-[600px] flex items-center overflow-hidden perspective-1000">
       
-      {/*Engineering Background */}
-      <div className="absolute inset-0 z-0 opacity-[0.04]" 
-           style={{ backgroundImage: 'linear-gradient(#07562C 1px, transparent 1px), linear-gradient(90deg, #07562C 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
-      </div>
-      
-      {/* Glows */}
-      <div className="absolute top-20 left-10 w-[300px] h-[300px] rounded-full bg-green-200/40 blur-[90px] pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] rounded-full bg-[#10B981]/15 blur-[100px] pointer-events-none"></div>
+      {/* Video Background with slow zoom-out entrance */}
+      <motion.div 
+        initial={{ scale: 1.15 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 4, ease: "easeOut" }}
+        className="absolute top-0 left-0 w-full h-full z-0"
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src={landingVideo} type="video/mp4" />
+        </video>
+      </motion.div>
+
+      {/* Complex Gradient Overlay: Darker on the left for text readability, sweeping to transparent */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/90 via-black/50 to-transparent z-10" />
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-20 w-full mt-16 lg:mt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column*/}
           <motion.div 
-            className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start"
+            className="lg:col-span-9 text-left flex flex-col items-start"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.h1 
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#1a2b21] mb-6 leading-[1.15]"
-            >
-              Innovating the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Future</span> of Agricultural and Bio-resources Engineering in FUNAAB.
-            </motion.h1>
+            {/* 
+                Wrapping the H1 in a perspective container to handle the 3D rotateX properly.
+                overflow-hidden creates the "mask" so the text looks like it slides up from a floor.
+            */}
+            <div className="overflow-hidden py-2 perspective-[1000px]">
+              <motion.h1 
+                variants={textRevealVariants}
+                className="text-4xl sm:text-5xl lg:text-[64px] font-extrabold tracking-tight text-white mb-4 leading-[1.1]"
+              >
+                Innovating the <br className="hidden sm:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#A7F3D0] inline-block">
+                  Future
+                </span> of Agricultural <br className="hidden lg:block"/>
+                and Bio-resources.
+              </motion.h1>
+            </div>
             
             <motion.p 
-              variants={itemVariants}
-              className="text-base sm:text-lg text-gray-600 mb-8 max-w-2xl leading-relaxed font-medium lg:pr-10"
+              variants={blurInVariants}
+              className="text-base sm:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed font-light tracking-wide"
             >
-              Join the brightest student Engineers at the Federal University of Agriculture, Abeokuta. We are bridging the gap in agricultural technology, farm mechanization and sustainable bio-resources.
+              Join the brightest minds at FUNAAB. We are engineering the next generation of farm mechanization, ecological management, and sustainable bio-resources.
             </motion.p>
             
             <motion.div 
-              variants={itemVariants} 
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              variants={buttonGroupVariants} 
+              className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
             >
-              <a 
+              {/* Primary Button */}
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#join" 
-                className="group inline-flex items-center justify-center gap-2 bg-[#07562C] text-white px-8 py-3.5 rounded-xl font-bold text-[15px] hover:bg-[#054020] transition-all duration-300 shadow-[0_8px_25px_rgba(7,86,44,0.25)] hover:shadow-[0_12px_30px_rgba(7,86,44,0.35)] hover:-translate-y-1"
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[#10B981] text-white px-8 py-4 rounded-xl font-bold text-[16px] transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.3)]"
               >
-                Join Us
-                <FiArrowRight className="text-lg group-hover:translate-x-1.5 transition-transform" />
-              </a>
-              <a 
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <span>Join Us</span>
+                <FiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
+              </motion.a>
+
+              {/* Secondary Button */}
+              <motion.a 
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                whileTap={{ scale: 0.95 }}
                 href="#pay-dues" 
-                className="inline-flex items-center justify-center bg-white text-[#07562C] border-2 border-[#07562C] px-8 py-3.5 rounded-xl font-bold text-[15px] hover:bg-green-50 transition-all duration-300 shadow-sm hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center bg-transparent backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-[16px] transition-all duration-300 hover:border-white/60"
               >
                 Pay Dues
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column*/}
-          <motion.div 
-            className="lg:col-span-5 flex justify-center lg:justify-end relative mt-8 lg:mt-0"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          >
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-md"
-            >
-              <img 
-                src={tractorImg}
-                alt="Agricultural Engineering Tractor" 
-                className="relative w-full h-auto object-contain drop-shadow-2xl rounded-2xl"
-              />
+              </motion.a>
             </motion.div>
           </motion.div>
 

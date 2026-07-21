@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, animate } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-// A clean, reusable counter component using framer-motion
 const AnimatedCounter = ({ from = 0, to, duration = 2.5, inView }) => {
   const [count, setCount] = useState(from);
 
@@ -15,16 +14,16 @@ const AnimatedCounter = ({ from = 0, to, duration = 2.5, inView }) => {
           setCount(Math.round(value));
         }
       });
-      return controls.stop; // Cleanup animation on unmount
+      return controls.stop; 
     }
   }, [from, to, duration, inView]);
 
-  return <>{count.toLocaleString()}</>; // toLocaleString adds the commas automatically
+  return <>{count.toLocaleString()}</>;
 };
 
 const ImpactSection = () => {
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: 0.2,
     triggerOnce: true,
   });
 
@@ -35,56 +34,135 @@ const ImpactSection = () => {
     { id: 4, label: 'Years of Impact', value: 25, suffix: '+' },
   ];
 
+  // Choreographed Stagger Container
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+    }
+  };
+
+  // 3D Hinge & Scale effect for the cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, rotateX: -30, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      rotateX: 0,
+      scale: 1, 
+      transition: { type: "spring", stiffness: 90, damping: 14 } 
+    }
+  };
+
+  // The green accent line that draws itself
+  const lineVariants = {
+    hidden: { width: "0%" },
+    visible: { 
+      width: "100%", 
+      transition: { duration: 0.8, ease: "easeInOut", delay: 0.6 } 
+    }
+  };
+
+  // Typography sliding up from a mask
+  const textRevealVariants = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+    }
+  };
+
   return (
-    <section className="relative py-24 bg-niaesb-green text-niaesb-white overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white opacity-10 rounded-full blur-3xl"></div>
+    <section className="relative py-24 bg-white overflow-hidden perspective-1000">
+      
+      {/* Very subtle architectural dot pattern for texture on white */}
+      <div className="absolute inset-0 z-0 opacity-[0.03]" 
+           style={{ backgroundImage: 'radial-gradient(#07562C 2px, transparent 2px)', backgroundSize: '36px 36px' }}>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+        
+        {/* Header Section */}
+        <div className="text-center mb-20">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-extrabold"
+            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight"
           >
-            Our Impact at a <span className="text-green-300">Glance</span>
+            Our Impact at a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Glance</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, delay: 0.1 }}
-            className="mt-4 text-lg text-green-100 max-w-2xl mx-auto"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-5 text-lg text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed"
           >
             Decades of building agricultural engineering leaders, fostering community, and driving technical excellence.
           </motion.p>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-green-800/50">
-          {stats.map((stat, index) => (
+        {/* Stats Grid Container */}
+        <motion.div 
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {stats.map((stat) => (
             <motion.div 
               key={stat.id}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 100 }}
-              className="text-center py-6 sm:py-0"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.15)",
+                transition: { duration: 0.4, ease: "easeOut" } 
+              }}
+              className="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center justify-center text-center group"
             >
-              <div className="text-5xl md:text-6xl font-extrabold text-white mb-2 drop-shadow-md">
-                {inView ? (
-                  <AnimatedCounter from={0} to={stat.value} duration={2.5} inView={inView} />
-                ) : (
-                  "0"
-                )}
-                <span className="text-green-400">{stat.suffix}</span>
+              {/* Animated Top Accent Line */}
+              <div className="absolute top-0 left-0 h-1 bg-gradient-to-r from-[#07562C] to-[#10B981] rounded-t-2xl w-full overflow-hidden">
+                <motion.div 
+                  variants={lineVariants}
+                  className="h-full bg-gradient-to-r from-[#07562C] to-[#10B981]"
+                />
               </div>
-              <p className="text-green-100 font-semibold text-lg uppercase tracking-wider">
-                {stat.label}
-              </p>
+
+              <div className="relative z-10 w-full mt-2">
+                {/* Numbers */}
+                <motion.div 
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 120, delay: 0.3 }}
+                  className="text-5xl md:text-6xl font-black text-gray-900 mb-4 tracking-tighter flex items-center justify-center"
+                >
+                  {inView ? (
+                    <AnimatedCounter from={0} to={stat.value} duration={2.5} inView={inView} />
+                  ) : (
+                    "0"
+                  )}
+                  <span className="text-[#10B981] ml-1">{stat.suffix}</span>
+                </motion.div>
+                
+                {/* Masked Label Reveal */}
+                <div className="overflow-hidden py-1">
+                  <motion.p 
+                    variants={textRevealVariants}
+                    className="text-gray-500 font-bold text-sm md:text-base uppercase tracking-[0.2em]"
+                  >
+                    {stat.label}
+                  </motion.p>
+                </div>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
