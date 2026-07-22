@@ -3,12 +3,9 @@ import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import landingVideo from '../../assets/landing/landing-video.mp4';
 
-// Create a motion-enabled Link component outside the main function
-// to prevent unnecessary re-renders
 const MotionLink = motion(Link);
 
 const HeroSection = () => {
-  // Staggering the entrance of each element
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -20,27 +17,16 @@ const HeroSection = () => {
     },
   };
 
-  // 2D Spring Reveal for typography.
   const textRevealVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60, 
-      scale: 0.95 
-    },
+    hidden: { opacity: 0, y: 60, scale: 0.95 },
     visible: { 
       opacity: 1, 
       y: 0, 
       scale: 1, 
-      transition: { 
-        type: "spring", 
-        damping: 20, 
-        stiffness: 100, 
-        duration: 1 
-      } 
+      transition: { type: "spring", damping: 20, stiffness: 100, duration: 1 } 
     },
   };
 
-  // Smooth blur-in for the subtext
   const blurInVariants = {
     hidden: { opacity: 0, filter: "blur(15px)", y: 20 },
     visible: { 
@@ -51,7 +37,6 @@ const HeroSection = () => {
     }
   };
 
-  // Explosive spring pop for the buttons
   const buttonGroupVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 20 },
     visible: { 
@@ -63,10 +48,9 @@ const HeroSection = () => {
   };
 
   return (
-    // Added pt-32 md:pt-40 directly to the section wrapper to clear the fixed header
-    <section className="relative w-full min-h-[85vh] pt-32 md:pt-40 pb-16 flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden">
       
-      {/* Video Background with slow zoom-out entrance */}
+      {/* Video Background */}
       <motion.div 
         initial={{ scale: 1.15 }}
         animate={{ scale: 1 }}
@@ -85,13 +69,15 @@ const HeroSection = () => {
         </video>
       </motion.div>
 
-      {/* Complex Gradient Overlay */}
+      {/* Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
+      {/* Main Container with an explicit structural spacer div at the top */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full flex flex-col justify-center">
+        {/* Structural Spacer to guarantee text never hides behind the floating header */}
+        <div className="h-32 md:h-36 w-full"></div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-16">
           <motion.div 
             className="lg:col-span-9 text-left flex flex-col items-start"
             variants={containerVariants}
@@ -122,7 +108,6 @@ const HeroSection = () => {
               variants={buttonGroupVariants} 
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto font-mono"
             >
-              {/* Primary Button - Using MotionLink */}
               <MotionLink 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -134,7 +119,6 @@ const HeroSection = () => {
                 <FiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
               </MotionLink>
 
-              {/* Secondary Button - Using MotionLink */}
               <MotionLink 
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(240,253,244,0.1)" }}
                 whileTap={{ scale: 0.95 }}
@@ -145,7 +129,6 @@ const HeroSection = () => {
               </MotionLink>
             </motion.div>
           </motion.div>
-
         </div>
       </div>
       
