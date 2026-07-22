@@ -83,8 +83,6 @@ const HeroSection = () => {
           <source src={landingVideo} type="video/mp4" />
         </video>
       </motion.div>
-
-      {/* Complex Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
       {/* Main Container - Increased pt-40 on mobile so text clears the fixed floating header */}
