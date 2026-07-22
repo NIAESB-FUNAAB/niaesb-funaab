@@ -13,7 +13,8 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50 font-sans">
+    // THE FIX: Added -mt-28 md:-mt-32 to slide the entire split-screen up behind the header
+    <div className="min-h-screen flex bg-gray-50 font-sans -mt-28 md:-mt-32">
       
       {/* Left Panel - Branding (Hidden on mobile, visible on lg screens) */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-[#07562C]">
@@ -25,7 +26,8 @@ const AuthPage = () => {
         <div className="absolute inset-0 opacity-[0.05]" 
              style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-        <div className="relative z-10 w-full flex flex-col justify-between p-16 lg:p-24 h-full">
+        {/* THE FIX: Changed p-16 to explicit px/pb and added pt-[10rem] lg:pt-[12rem] for safe area */}
+        <div className="relative z-10 w-full flex flex-col justify-between px-16 lg:px-24 pb-16 lg:pb-24 pt-[10rem] lg:pt-[12rem] h-full">
           {/* Logo / Brand Name */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
@@ -64,7 +66,8 @@ const AuthPage = () => {
       </div>
 
       {/* Right Panel - Auth Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 lg:p-24 relative overflow-hidden">
+      {/* THE FIX: Separated padding and added heavy pt-[10rem] lg:pt-[12rem] to push form down securely */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 sm:px-12 lg:px-24 pb-6 sm:pb-12 lg:pb-24 pt-[10rem] lg:pt-[12rem] relative overflow-hidden">
         
         {/* Mobile Ambient Glow */}
         <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-green-200/30 blur-[80px] lg:hidden" />

@@ -75,11 +75,13 @@ const AboutPage = () => {
   };
 
   return (
-    // Added pt-36 md:pt-40 to clear the floating header completely
-    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
+    // THE FIX: Added negative margin (-mt-28 md:-mt-32) to pull the whole page up under the header.
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 -mt-28 md:-mt-32 overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
       
       {/* HERO SECTION */}
-      <div className="relative min-h-[75vh] flex items-center justify-center py-20 overflow-hidden rounded-[3rem] max-w-7xl mx-auto px-6 mb-20">
+      {/* THE FIX: Made the background full bleed, set rounded-b-[3rem] for a flat top, and added heavy top padding (pt-[12rem]) so text clears the header. */}
+      <div className="relative min-h-[75vh] md:min-h-[85vh] flex items-center justify-center pt-[12rem] md:pt-[14rem] pb-20 overflow-hidden rounded-b-[3rem] md:rounded-b-[4rem] mb-20">
+        
         {/* Parallax Background */}
         <motion.div 
           style={{ y: heroY, backgroundImage: `url(${buildingBg})` }}

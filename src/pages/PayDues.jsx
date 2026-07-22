@@ -18,17 +18,19 @@ const PayDuesPage = () => {
   };
 
   return (
-    // Unified Wrapper with Safe Area for Header
-    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 relative overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
+    // THE FIX: Added -mt-28 md:-mt-32 to pull the container to the top edge under the header
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 -mt-28 md:-mt-32 relative overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
       
-      {/* --- HERO SECTION (Bento Box Style) --- */}
-      <div className="relative bg-[#04331A] min-h-[75vh] flex items-center overflow-hidden z-10 rounded-[3rem] max-w-7xl mx-auto px-6 lg:px-12 py-20 mb-24 shadow-[0_20px_60px_-15px_rgba(4,51,26,0.4)] border border-[#07562C]">
+      {/* --- HERO SECTION --- */}
+      {/* THE FIX: Made full-bleed by moving max-w/mx-auto to the inner container, changed rounded corners to bottom only, added heavy top padding */}
+      <div className="relative bg-[#04331A] min-h-[75vh] md:min-h-[85vh] flex items-center overflow-hidden z-10 rounded-b-[3rem] md:rounded-b-[4rem] pt-[12rem] md:pt-[14rem] pb-20 mb-24 shadow-[0_20px_60px_-15px_rgba(4,51,26,0.4)] border-b border-[#07562C]">
         
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
         <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-[#10B981] rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#10B981] rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        {/* THE FIX: Inner container to hold the content centered while the background stretches edge-to-edge */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           
           {/* Left Call to Action */}
           <motion.div 

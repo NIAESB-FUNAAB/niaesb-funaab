@@ -50,12 +50,14 @@ const Header = () => {
   return (
     <>
       {/* DESKTOP & FLOATING HEADER */}
-      <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 md:px-8 pt-4 md:pt-6 pointer-events-none font-mono">
+      {/* FIX: Changed inset-x-0 to left-0 w-full for safer viewport bounding */}
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 md:px-8 pt-4 md:pt-6 pointer-events-none font-mono box-border">
         <motion.div 
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: premiumEase }}
-          className={`pointer-events-auto w-full max-w-7xl flex justify-between items-center transition-all duration-500 ease-in-out rounded-full border ${
+          // FIX: Added 'relative' and swapped 'transition-all' for specific targeted transitions to stop Framer Motion conflict
+          className={`relative pointer-events-auto w-full max-w-7xl flex justify-between items-center transition-colors transition-shadow transition-[padding] duration-500 ease-in-out rounded-full border ${
             scrolled || isOpen
               ? 'bg-white/80 backdrop-blur-xl border-[#04331A]/10 py-2.5 px-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)]' 
               : 'bg-white/95 backdrop-blur-md border-white/20 py-4 px-6 shadow-[0_20px_40px_-15px_rgba(7,86,44,0.1)]'

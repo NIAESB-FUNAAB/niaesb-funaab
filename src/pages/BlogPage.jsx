@@ -18,8 +18,8 @@ const BlogPage = () => {
   };
 
   return (
-    // Unified Wrapper with Safe Area for Header
-    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 font-mono selection:bg-[#10B981] selection:text-white relative flex items-center justify-center">
+    // THE FIX: Added -mt-28 md:-mt-32 and shifted padding to pt-[12rem] md:pt-[14rem]
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 -mt-28 md:-mt-32 pt-[12rem] md:pt-[14rem] font-mono selection:bg-[#10B981] selection:text-white relative flex items-center justify-center">
       
       {/* Background Subtle Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#04331A05_1px,transparent_1px),linear-gradient(to_bottom,#04331A05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
@@ -52,7 +52,8 @@ const BlogPage = () => {
 
           {/* Universal Copy */}
           <motion.p variants={fadeUp} className="relative z-10 text-white/60 text-base md:text-lg font-medium leading-relaxed max-w-lg mb-16">
-Page Not Available          </motion.p>
+            Page Not Available
+          </motion.p>
 
           {/* Real Loading Status Bar */}
           <motion.div variants={fadeUp} className="relative z-10 w-full max-w-xs flex flex-col items-center gap-4">

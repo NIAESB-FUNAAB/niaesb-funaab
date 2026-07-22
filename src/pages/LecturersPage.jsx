@@ -42,11 +42,12 @@ const LecturersPage = () => {
   };
 
   return (
-    // Unified Wrapper with Safe Area for Header
-    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 relative overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
+    // THE FIX: Added -mt-28 md:-mt-32 and shifted padding to pt-[12rem] md:pt-[14rem] to slide seamlessly under the header
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 -mt-28 md:-mt-32 pt-[12rem] md:pt-[14rem] relative overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
       
       {/* Background Marquee Theme Update */}
-      <div className="absolute top-40 left-0 w-[200vw] flex opacity-5 pointer-events-none select-none z-0">
+      {/* THE FIX: Adjusted top position to account for the new layout math */}
+      <div className="absolute top-[12rem] md:top-[14rem] left-0 w-[200vw] flex opacity-5 pointer-events-none select-none z-0">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 40 }}

@@ -10,9 +10,8 @@ const LandingPage = () => {
       <HeroSection />
       <AboutSection />
       <QuickAccess/>
-      
-<ExcosSection/>
-<ImpactSection/>
+      <ExcosSection/>
+      <ImpactSection/>
     </main>
   );
 };

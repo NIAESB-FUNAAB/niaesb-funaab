@@ -13,15 +13,11 @@ import Auth from './pages/Auth';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col font-sans">
+    // THE FIX: Added relative, w-full, and overflow-x-hidden to this wrapper
+    // This acts as a strict cage so no child element can force the page wider than the screen.
+    <div className="relative w-full overflow-x-hidden min-h-screen flex flex-col font-sans">
       <Header />
 
-      {/* 
-        THE GLOBAL FIX: 
-        Changed to <main> for better semantics.
-        Added pt-28 (112px on mobile) and md:pt-32 (128px on desktop).
-        This guarantees no page will ever hide underneath your fixed Header again.
-      */}
       <main className="flex-grow pt-28 md:pt-32">
         <Routes>
           <Route path="/" element={<LandingPage />} />

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // 1. Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const ELibraryPage = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const navigate = useNavigate(); // 2. Initialize the navigation hook
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsMounted(true);
@@ -18,8 +18,8 @@ const ELibraryPage = () => {
   ];
 
   return (
-    // Unified Wrapper with Safe Area for Header
-    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 font-mono selection:bg-[#10B981] selection:text-white relative overflow-hidden">
+    // THE FIX: Added -mt-28 md:-mt-32 and shifted padding to pt-[12rem] md:pt-[14rem] to slide seamlessly under the header
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 -mt-28 md:-mt-32 pt-[12rem] md:pt-[14rem] font-mono selection:bg-[#10B981] selection:text-white relative overflow-hidden">
       
       {/* Background Subtle Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#04331A05_1px,transparent_1px),linear-gradient(to_bottom,#04331A05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
@@ -72,7 +72,7 @@ const ELibraryPage = () => {
           {levels.map((level, index) => (
             <button
               key={level.id}
-              onClick={() => navigate(`/library/${level.id}`)} // 3. Triggers dynamic routing to LevelDetails component
+              onClick={() => navigate(`/library/${level.id}`)}
               className={`group relative h-80 w-full bg-white border border-[#04331A]/10 rounded-[2rem] p-6 text-left overflow-hidden transition-all duration-700 ease-out outline-none hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)] hover:border-[#10B981]/30 hover:-translate-y-3 focus:ring-4 focus:ring-[#10B981]/20 flex flex-col justify-between ${
                 isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'
               }`}

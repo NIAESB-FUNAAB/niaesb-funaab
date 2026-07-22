@@ -103,12 +103,13 @@ const SocialLinks = () => (
 // MAIN PAGE COMPONENT
 const ExcosPage = () => {
   return (
-    // Fixed wrapper matching the styling of AboutPage and clearing the header
-    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 font-mono selection:bg-[#10B981] selection:text-white relative overflow-hidden">
+    // THE FIX: Added -mt-28 md:-mt-32 to pull the container to the top edge under the header
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 -mt-28 md:-mt-32 font-mono selection:bg-[#10B981] selection:text-white relative overflow-hidden">
       <BackgroundPattern />
 
       {/* HERO SECTION - Styled to match AboutPage */}
-      <div className="relative min-h-[75vh] flex items-center justify-center py-20 overflow-hidden rounded-[3rem] max-w-7xl mx-auto px-6 mb-20 text-center">
+      {/* THE FIX: Made full-bleed by removing max-w and mx-auto, changed rounded corners to bottom only, added heavy top padding */}
+      <div className="relative min-h-[75vh] md:min-h-[85vh] flex items-center justify-center pt-[12rem] md:pt-[14rem] pb-20 overflow-hidden rounded-b-[3rem] md:rounded-b-[4rem] mb-20 text-center">
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

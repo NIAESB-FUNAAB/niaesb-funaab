@@ -44,7 +44,7 @@ const Footer = () => {
     <footer className="relative bg-[#04331A] text-white overflow-hidden pt-24 pb-8 font-mono selection:bg-[#10B981] selection:text-white border-t border-[#07562C]">
       
       {/* 1. Premium Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgibm9pc2VGaWx0ZXIpIi8+PC9zdmc+')]"></div>
+      <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVy idD0ibm9pc2VGaWx0ZXI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgibm9pc2VGaWx0ZXIpIi8+PC9zdmc+')]"></div>
 
       {/* 2. Architectural Watermark */}
       <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none flex items-center justify-center overflow-hidden z-0">
@@ -109,11 +109,11 @@ const Footer = () => {
           >
             <h3 className="text-[#10B981] font-black uppercase tracking-[0.2em] text-xs">Terminal / Contact</h3>
             <div className="flex flex-col gap-5 text-white/60 text-sm font-medium">
-              <a href="mailto:hello@niaesbfunaab.com" className="flex items-center gap-4 hover:text-white transition-colors group w-fit">
+              <a href="mailto:NIAESB funaab.25@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors group w-fit">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center group-hover:bg-[#10B981]/20 group-hover:border-[#10B981]/30 group-hover:text-[#10B981] transition-all duration-300">
                   <FiMail size={18} />
                 </div>
-                <span className="tracking-wide">hello@niaesbfunaab.com</span>
+                <span className="tracking-wide">NIAESBfunaab.25@gmail.com</span>
               </a>
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center group-hover:bg-[#10B981]/20 group-hover:border-[#10B981]/30 group-hover:text-[#10B981] transition-all duration-300 flex-shrink-0 mt-1">

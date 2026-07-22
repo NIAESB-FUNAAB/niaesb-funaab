@@ -111,7 +111,7 @@ const AboutSection = () => {
                 
                 <h4 className="text-2xl font-bold text-[#04331A] mb-4 tracking-tight relative z-10">Strategic Vision</h4>
                 <p className="text-[#04331A]/70 text-base leading-relaxed font-medium relative z-10">
-                  To establish a premier developmental ecosystem that inspires technical innovation, cultivates professional excellence, and forges the next generation of Bio-resources leaders.
+                  To be a focal point in the teaching and research of Agricultural Engineering, leading the way in innovative skills and optimization of agricultural resources to achieve food security, sustainable livelihoods and preserve the environment.
                 </p>
               </motion.div>
 
@@ -132,7 +132,7 @@ const AboutSection = () => {
                 
                 <h4 className="text-2xl font-bold text-white mb-4 tracking-tight relative z-10">Core Mission</h4>
                 <p className="text-[#10B981]/80 text-base leading-relaxed font-medium relative z-10">
-                  Deploying unparalleled opportunities for collaborative learning, leadership training, and practical engineering exposure to drive sustainable agricultural development.
+                  Transmission of engineering knowledge through high-quality academic and professional training to equip our graduates with requisite skills for creativity and agro-industrial development commensurate with the 21st century.
                 </p>
               </motion.div>
 
