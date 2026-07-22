@@ -63,7 +63,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[90vh] min-h-[650px] flex items-center overflow-hidden">
+    // Added pt-32 md:pt-40 directly to the section wrapper to clear the fixed header
+    <section className="relative w-full min-h-[85vh] pt-32 md:pt-40 pb-16 flex items-center overflow-hidden">
       
       {/* Video Background with slow zoom-out entrance */}
       <motion.div 
@@ -87,8 +88,8 @@ const HeroSection = () => {
       {/* Complex Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* Main Container - Increased pt-40 on mobile so text clears the fixed floating header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full pt-40 lg:pt-0">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <motion.div 
