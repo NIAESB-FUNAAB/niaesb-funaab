@@ -89,7 +89,7 @@ const LevelDetails = () => {
               <motion.div 
                 key={course.code}
                 variants={fadeUp}
-                className="group relative bg-white border border-[#04331A]/10 rounded-[2rem] p-6 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)] hover:border-[#10B981]/30 transition-all duration-500 cursor-pointer flex flex-col"
+                className="group relative bg-white border border-[#04331A]/10 rounded-[2rem] p-6 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)] hover:border-[#10B981]/30 transition-all duration-500 flex flex-col"
               >
                 {/* Subtle Gradient Hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#10B981]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
@@ -117,9 +117,15 @@ const LevelDetails = () => {
                   <span className="text-[#04331A]/40 text-xs font-medium">
                     Folder Ready
                   </span>
-                  <span className="text-[#10B981] text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                  {/* Converted to a clickable tag using the course link */}
+                  <a 
+                    href={course.link || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#10B981] text-sm font-bold flex items-center gap-2 group-hover:translate-x-1 transition-transform cursor-pointer"
+                  >
                     View Materials <FiArrowLeft className="rotate-180" />
-                  </span>
+                  </a>
                 </div>
               </motion.div>
             ))}
