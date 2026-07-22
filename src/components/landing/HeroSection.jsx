@@ -63,9 +63,8 @@ const HeroSection = () => {
   };
 
   return (
-    // BULLETPROOF FIX: Switched from "items-center" to "flex-col justify-center" 
-    // Added a hard pt-[120px] to physically block the top area from being used by the centered content
-    <section className="relative w-full h-[100svh] lg:h-[85vh] min-h-[650px] flex flex-col justify-center pt-[120px] lg:pt-[80px] overflow-hidden">
+    // Removed flex and justify-center from the main section wrapper
+    <section className="relative w-full h-[100svh] lg:h-[85vh] min-h-[650px] overflow-hidden">
       
       {/* Video Background with slow zoom-out entrance */}
       <motion.div 
@@ -89,9 +88,15 @@ const HeroSection = () => {
       {/* Complex Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* MAIN CONTAINER: Removed margin/padding hacks since the parent section now handles the spacing */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* 
+        THE FIX IS HERE:
+        - h-full: Takes up the whole section height
+        - flex flex-col justify-start: Forces items to start from the top instead of the center
+        - pt-[160px]: Pushes the content exactly 160 pixels away from the very top (clearing your header)
+        - lg:justify-center lg:pt-0: Reverts back to perfect vertical centering on large desktop screens
+      */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full h-full flex flex-col justify-start pt-[160px] lg:justify-center lg:pt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
           
           <motion.div 
             className="lg:col-span-9 text-left flex flex-col items-start"
@@ -153,13 +158,6 @@ const HeroSection = () => {
       <style>{`
         @keyframes shimmer {
           100% { transform: translateX(100%); }
-        }
-      `}</style>
-    </section>
-  );
-};
-
-export default HeroSection;
         }
       `}</style>
     </section>
