@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 // Replace this with your actual image path
-import landingImage from '../../assets/landing/tractor.jpg'; 
+import landingImage from '../../assets/landing/hero.png'; 
 
 const MotionLink = motion(Link);
 
