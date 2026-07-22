@@ -30,28 +30,36 @@ const HeroSection = () => {
   };
 
   return (
-    // COPYING THE ABOUT SECTION PATTERN:
-    // 1. Removed h-[100vh] and flex items-center for mobile.
-    // 2. Added pt-48 (192px top padding) directly to the <section> tag to naturally clear the header.
-    // 3. Desktop (lg:...) still gets the full height and flex centering.
     <section className="relative w-full pt-48 pb-24 lg:pt-0 lg:h-[100vh] lg:flex lg:items-center overflow-hidden bg-[#04331A]">
       
-      {/* Video Background */}
+      {/* 
+        THE VIDEO FIX: 
+        1. Removed the 1.15 scale zoom.
+        2. Changed object-cover to object-contain.
+        3. Added flex centering so the un-cropped video sits perfectly in the middle.
+      */}
       <motion.div 
-        initial={{ scale: 1.15 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 4, ease: "easeOut" }}
-        className="absolute top-0 left-0 w-full h-full z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute top-0 left-0 w-full h-full z-0 flex items-center justify-center bg-[#04331A]"
       >
-        <video autoPlay loop muted playsInline poster="image_fff0e4.jpg" className="w-full h-full object-cover">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          poster="image_fff0e4.jpg" 
+          className="w-full h-full object-contain"
+        >
           <source src={landingVideo} type="video/mp4" />
         </video>
       </motion.div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
+      {/* Gradient Overlay adjusted slightly to blend the video edges */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#04331A]/95 via-transparent to-[#04331A]/95 z-10" />
 
-      {/* Inner Container: Matches the exact structure of AboutSection */}
+      {/* Inner Container */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
