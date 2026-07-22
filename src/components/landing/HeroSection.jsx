@@ -63,8 +63,8 @@ const HeroSection = () => {
   };
 
   return (
-    // Removed flex and justify-center from the main section wrapper
-    <section className="relative w-full h-[100svh] lg:h-[85vh] min-h-[650px] overflow-hidden">
+    // SQUARE ONE: Back to "flex items-center". Changed mobile height to 100vh so content fits safely.
+    <section className="relative w-full h-[100vh] lg:h-[85vh] min-h-[600px] flex items-center overflow-hidden">
       
       {/* Video Background with slow zoom-out entrance */}
       <motion.div 
@@ -88,15 +88,11 @@ const HeroSection = () => {
       {/* Complex Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* 
-        THE FIX IS HERE:
-        - h-full: Takes up the whole section height
-        - flex flex-col justify-start: Forces items to start from the top instead of the center
-        - pt-[160px]: Pushes the content exactly 160 pixels away from the very top (clearing your header)
-        - lg:justify-center lg:pt-0: Reverts back to perfect vertical centering on large desktop screens
-      */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full h-full flex flex-col justify-start pt-[160px] lg:justify-center lg:pt-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full lg:pt-0">
+        
+        {/* THE FIX: translate-y-28 forcefully pushes the element down 112px on mobile, avoiding the header entirely */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center translate-y-28 lg:translate-y-0">
           
           <motion.div 
             className="lg:col-span-9 text-left flex flex-col items-start"
