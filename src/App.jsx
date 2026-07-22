@@ -6,7 +6,7 @@ import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
 import LecturersPage from './pages/LecturersPage';
 import LibraryPage from './pages/LibraryPage';
-import LevelDetails from './components/library/LevelDetails'; // 1. Import your dynamic component
+import LevelDetails from './components/library/LevelDetails'; 
 import PayDues from './pages/PayDues';
 import ExcosPage from './pages/ExcosPage';
 import Auth from './pages/Auth';
@@ -16,7 +16,13 @@ function App() {
     <div className="min-h-screen flex flex-col font-sans">
       <Header />
 
-      <div className="flex-grow">
+      {/* 
+        THE GLOBAL FIX: 
+        Changed to <main> for better semantics.
+        Added pt-28 (112px on mobile) and md:pt-32 (128px on desktop).
+        This guarantees no page will ever hide underneath your fixed Header again.
+      */}
+      <main className="flex-grow pt-28 md:pt-32">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -24,14 +30,14 @@ function App() {
           <Route path="/lecturers" element={<LecturersPage />} />
           <Route path="/library" element={<LibraryPage />} />
           
-          {/* 2. Dynamic route that captures 100, 200, 300, 400, or 500 */}
+          {/* Dynamic route that captures 100, 200, 300, 400, or 500 */}
           <Route path="/library/:levelId" element={<LevelDetails />} />
           
           <Route path="/pay-dues" element={<PayDues />} />
           <Route path="/excos" element={<ExcosPage />} />
           <Route path="/auth" element={<Auth />} />
         </Routes>
-      </div>
+      </main>
 
       <Footer />
     </div>
