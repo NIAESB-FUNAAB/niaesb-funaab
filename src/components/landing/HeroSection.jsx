@@ -3,46 +3,38 @@ import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import landingVideo from '../../assets/landing/landing-video.mp4';
 
-// Create a motion-enabled Link component outside the main function
-// to prevent unnecessary re-renders
 const MotionLink = motion(Link);
 
 const HeroSection = () => {
-  // Staggering the entrance of each element
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { 
-        staggerChildren: 0.2, 
-        delayChildren: 0.4 
-      },
+      transition: { staggerChildren: 0.2, delayChildren: 0.4 },
     },
   };
 
-  // 2D Spring Reveal for typography.
   const textRevealVariants = {
     hidden: { opacity: 0, y: 60, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", damping: 20, stiffness: 100, duration: 1 } },
   };
 
-  // Smooth blur-in for the subtext
   const blurInVariants = {
     hidden: { opacity: 0, filter: "blur(15px)", y: 20 },
     visible: { opacity: 1, filter: "blur(0px)", y: 0, transition: { duration: 1, ease: "easeOut" } }
   };
 
-  // Explosive spring pop for the buttons
   const buttonGroupVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 20 },
     visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", damping: 12, stiffness: 150 } }
   };
 
   return (
-    // THE ULTIMATE FIX: 
-    // "block" kills flexbox vertical centering entirely on mobile so it doesn't bounce back up.
-    // "lg:flex lg:items-center" turns perfect centering back on for desktop.
-    <section className="relative w-full min-h-[100svh] block lg:flex lg:items-center overflow-hidden bg-[#04331A]">
+    // COPYING THE ABOUT SECTION PATTERN:
+    // 1. Removed h-[100vh] and flex items-center for mobile.
+    // 2. Added pt-48 (192px top padding) directly to the <section> tag to naturally clear the header.
+    // 3. Desktop (lg:...) still gets the full height and flex centering.
+    <section className="relative w-full pt-48 pb-24 lg:pt-0 lg:h-[100vh] lg:flex lg:items-center overflow-hidden bg-[#04331A]">
       
       {/* Video Background */}
       <motion.div 
@@ -59,13 +51,9 @@ const HeroSection = () => {
       {/* Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* 
-        THE PUSH: 
-        "pt-[180px]" forces the content to start exactly 180 pixels from the top on mobile. 
-        "lg:pt-0" resets this so it doesn't mess up desktop. 
-      */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full pt-[180px] pb-[60px] lg:pt-0 lg:pb-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* Inner Container: Matches the exact structure of AboutSection */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           <motion.div 
             className="lg:col-span-9 text-left flex flex-col items-start"
@@ -97,7 +85,6 @@ const HeroSection = () => {
               variants={buttonGroupVariants} 
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto font-mono"
             >
-              {/* Primary Button */}
               <MotionLink 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -109,7 +96,6 @@ const HeroSection = () => {
                 <FiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
               </MotionLink>
 
-              {/* Secondary Button */}
               <MotionLink 
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(240,253,244,0.1)" }}
                 whileTap={{ scale: 0.95 }}
