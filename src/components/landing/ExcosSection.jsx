@@ -1,17 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom'; // Using Link for correct routing!
 
 // Import your images here. 
-// Update the filenames (finsec.jpg, gensec.jpg, vp.jpg) to match the actual files in your folder!
 import finsecImg from '../../assets/executives/akintola.jpg';
 import gensecImg from '../../assets/executives/itah.jpg';
 import vpImg from '../../assets/executives/nwaire.jpg';
 import ogbonImg from '../../assets/executives/ogbon.jpg';
 
 const ExcosTeaserSection = () => {
-  // State to handle the card fan animation across all devices
   const [isFanned, setIsFanned] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Automatically detect mobile view and open the fan
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 1024; // lg breakpoint
+      setIsMobile(mobile);
+      
+      // If on mobile, force it open. If desktop, close it by default.
+      if (mobile) {
+        setIsFanned(true);
+      } else {
+        setIsFanned(false);
+      }
+    };
+
+    // Run once on mount
+    handleResize();
+
+    // Listen for screen size changes
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const previewExcos = [
     { 
@@ -35,6 +57,9 @@ const ExcosTeaserSection = () => {
       hoverX: 100, hoverY: 20, hoverRotate: 15 
     },
   ];
+
+  // Reduces the spread distance on mobile so cards don't bleed off-screen
+  const spreadMultiplier = isMobile ? 0.6 : 1; 
 
   return (
     <section className="relative py-32 bg-[#fafafa] overflow-hidden flex items-center min-h-[80vh] font-mono">
@@ -76,13 +101,13 @@ const ExcosTeaserSection = () => {
               Meet the dedicated student executives steering the chapter towards innovation, community growth, and academic excellence.
             </p>
 
-            <a 
-              href="/excos" 
+            <Link 
+              to="/excos" 
               className="group relative inline-flex items-center justify-center gap-3 bg-[#07562C] text-white px-8 py-4 rounded-xl font-bold text-[16px] transition-all duration-300 shadow-[0_8px_25px_rgba(7,86,44,0.25)] hover:bg-[#054020] hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(7,86,44,0.35)]"
             >
               <span>Explore Directory</span>
               <FiArrowRight className="text-xl group-hover:translate-x-1.5 transition-transform" />
-            </a>
+            </Link>
           </motion.div>
 
           {/* Right Side: The Magnetic Card Fan */}
@@ -90,10 +115,11 @@ const ExcosTeaserSection = () => {
             <motion.div 
               initial="idle"
               animate={isFanned ? "hover" : "idle"}
-              onMouseEnter={() => setIsFanned(true)}
-              onMouseLeave={() => setIsFanned(false)}
-              onClick={() => setIsFanned(!isFanned)}
-              className="relative w-[280px] h-[360px] cursor-pointer z-10"
+              // Disable mouse/click toggles on mobile so it stays open
+              onMouseEnter={() => !isMobile && setIsFanned(true)}
+              onMouseLeave={() => !isMobile && setIsFanned(false)}
+              onClick={() => !isMobile && setIsFanned(!isFanned)}
+              className={`relative w-[280px] h-[360px] z-10 ${isMobile ? 'cursor-default' : 'cursor-pointer'}`}
             >
               {previewExcos.map((exco, index) => (
                 <motion.div
@@ -106,7 +132,7 @@ const ExcosTeaserSection = () => {
                       scale: 1 - (previewExcos.length - 1 - index) * 0.05, 
                     },
                     hover: { 
-                      x: exco.hoverX, 
+                      x: exco.hoverX * spreadMultiplier, 
                       y: exco.hoverY, 
                       rotate: exco.hoverRotate,
                       scale: 1.05,
@@ -122,12 +148,12 @@ const ExcosTeaserSection = () => {
                   className="absolute top-0 left-0 w-full h-full rounded-3xl border border-[#10B981]/40 p-6 flex flex-col justify-between shadow-xl overflow-hidden group"
                 >
                   {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07562C]/95 via-[#07562C]/40 to-black/10 z-0 transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className={`absolute inset-0 bg-gradient-to-t from-[#07562C]/95 via-[#07562C]/40 to-black/10 z-0 transition-opacity duration-300 ${isMobile ? 'opacity-90' : 'opacity-100 group-hover:opacity-90'}`} />
 
                   {/* Bottom of Card: Name & Role */}
-                  <div className="relative z-10 mt-auto transform transition-transform duration-300 group-hover:-translate-y-2">
-                    <h3 className="text-2xl font-bold mb-1 tracking-tight text-white">{exco.name}</h3>
-                    <p className="font-medium text-sm text-[#10B981]">
+                  <div className={`relative z-10 mt-auto transform transition-transform duration-300 ${isMobile ? '-translate-y-2' : 'group-hover:-translate-y-2'}`}>
+                    <h3 className="text-xl md:text-2xl font-bold mb-1 tracking-tight text-white">{exco.name}</h3>
+                    <p className="font-medium text-xs md:text-sm text-[#10B981]">
                       {exco.role}
                     </p>
                   </div>

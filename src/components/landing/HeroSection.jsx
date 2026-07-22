@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import landingVideo from '../../assets/landing/landing-video.mp4';
+
+// Create a motion-enabled Link component outside the main function
+// to prevent unnecessary re-renders
+const MotionLink = motion(Link);
 
 const HeroSection = () => {
   // Staggering the entrance of each element
@@ -15,23 +20,21 @@ const HeroSection = () => {
     },
   };
 
-  // 3D Flip & Mask Reveal for typography
+  // 2D Spring Reveal for typography.
   const textRevealVariants = {
     hidden: { 
       opacity: 0, 
-      y: 100, 
-      rotateX: -40, 
-      scale: 0.9 
+      y: 60, 
+      scale: 0.95 
     },
     visible: { 
       opacity: 1, 
       y: 0, 
-      rotateX: 0, 
       scale: 1, 
       transition: { 
         type: "spring", 
-        damping: 18, 
-        stiffness: 80, 
+        damping: 20, 
+        stiffness: 100, 
         duration: 1 
       } 
     },
@@ -60,7 +63,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[600px] flex items-center overflow-hidden perspective-1000">
+    <section className="relative w-full h-[85vh] min-h-[600px] flex items-center overflow-hidden">
       
       {/* Video Background with slow zoom-out entrance */}
       <motion.div 
@@ -84,8 +87,8 @@ const HeroSection = () => {
       {/* Complex Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* Main Container - Standardized Padding & Sizing */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full mt-16 lg:mt-0">
+      {/* Main Container - Added pt-32 safe area for mobile so it doesn't overlap the header */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full pt-32 lg:pt-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <motion.div 
@@ -94,7 +97,7 @@ const HeroSection = () => {
             initial="hidden"
             animate="visible"
           >
-            <div className="overflow-hidden py-2 perspective-[1000px]">
+            <div className="overflow-hidden py-2">
               <motion.h1 
                 variants={textRevealVariants}
                 className="font-mono text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F0FDF4] mb-6 leading-tight"
@@ -118,34 +121,33 @@ const HeroSection = () => {
               variants={buttonGroupVariants} 
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto font-mono"
             >
-              {/* Primary Button */}
-              <motion.a 
+              {/* Primary Button - Using MotionLink */}
+              <MotionLink 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="/auth" 
+                to="/auth" 
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[#10B981] text-[#F0FDF4] px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.3)]"
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                 <span>Join Us</span>
                 <FiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              </MotionLink>
 
-              {/* Secondary Button */}
-              <motion.a 
+              {/* Secondary Button - Using MotionLink */}
+              <MotionLink 
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(240,253,244,0.1)" }}
                 whileTap={{ scale: 0.95 }}
-                href="/pay-dues" 
+                to="/pay-dues" 
                 className="inline-flex items-center justify-center bg-transparent backdrop-blur-sm text-[#F0FDF4] border border-[#F0FDF4]/30 px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 hover:border-[#F0FDF4]/60"
               >
                 Pay Dues
-              </motion.a>
+              </MotionLink>
             </motion.div>
           </motion.div>
 
         </div>
       </div>
       
-      {/* Required custom animation for the button sheen */}
       <style>{`
         @keyframes shimmer {
           100% { transform: translateX(100%); }

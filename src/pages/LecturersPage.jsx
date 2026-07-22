@@ -26,6 +26,8 @@ const LecturersPage = () => {
     { name: "Dr. ADEPOJU O. Victor", title: "Dr.", specialty: "Power & Machinery Eng.", img: adepojuImg }
   ];
 
+  const customEase = [0.22, 1, 0.36, 1];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -40,16 +42,18 @@ const LecturersPage = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen py-20 relative overflow-hidden font-sans">
+    // Unified Wrapper with Safe Area for Header
+    <div className="bg-[#FAFAFA] min-h-screen pb-24 pt-36 md:pt-40 relative overflow-hidden font-mono selection:bg-[#10B981] selection:text-white">
       
-      <div className="absolute top-40 left-0 w-[200vw] flex opacity-[0.03] pointer-events-none select-none z-0">
+      {/* Background Marquee Theme Update */}
+      <div className="absolute top-40 left-0 w-[200vw] flex opacity-5 pointer-events-none select-none z-0">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
           className="flex whitespace-nowrap"
         >
-          <h1 className="text-[12rem] font-black text-gray-900 tracking-tighter mr-8">FUNAAB ENGINEERING • NIAESB •</h1>
-          <h1 className="text-[12rem] font-black text-gray-900 tracking-tighter mr-8">FUNAAB ENGINEERING • NIAESB •</h1>
+          <h1 className="text-[12rem] font-black text-[#04331A] tracking-tighter mr-8">FUNAAB ENGINEERING • NIAESB •</h1>
+          <h1 className="text-[12rem] font-black text-[#04331A] tracking-tighter mr-8">FUNAAB ENGINEERING • NIAESB •</h1>
         </motion.div>
       </div>
 
@@ -60,10 +64,11 @@ const LecturersPage = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-4 border border-[#04331A]/20 bg-[#04331A]/5 px-4 py-1.5 rounded-full"
+            transition={{ duration: 0.6, ease: customEase }}
+            className="inline-flex items-center gap-2 mb-6 border border-[#04331A]/10 bg-white shadow-sm px-5 py-2 rounded-full"
           >
-            <p className="text-[#04331A] font-bold text-xs tracking-[0.3em] uppercase">
+            <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></div>
+            <p className="text-[#04331A] font-bold text-xs tracking-[0.2em] uppercase">
               Dept. of Agricultural & Bioresources
             </p>
           </motion.div>
@@ -71,13 +76,14 @@ const LecturersPage = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-black text-[#04331A] uppercase tracking-tighter"
+            transition={{ duration: 0.7, ease: customEase, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-[#04331A] uppercase tracking-tighter leading-tight"
           >
-            Get Familiar with Our <span className="text-[#10B981] relative">
-             Amazing Lecturer
+            Get Familiar with Our <br className="hidden sm:block" />
+            <span className="text-[#10B981] relative inline-block mt-2">
+              Amazing Lecturers
               {/* Vibrant green accent underline behind the text */}
-              <span className="absolute bottom-2 left-0 w-full h-3 bg-[#10B981]/20 -z-10"></span>
+              <span className="absolute bottom-2 left-0 w-full h-3 md:h-4 bg-[#10B981]/20 -z-10 rounded-full"></span>
             </span>
           </motion.h1>
         </div>
@@ -88,15 +94,16 @@ const LecturersPage = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16"
         >
           {facultyMembers.map((faculty, index) => (
             <motion.div 
               variants={itemVariants}
               key={index} 
+              // Staggered layout applied seamlessly
               className={`group flex flex-col items-center cursor-pointer ${index % 2 !== 0 ? 'lg:mt-12' : ''}`}
             >
-              <div className="relative w-full aspect-[4/5] rounded-t-[5rem] rounded-b-2xl overflow-hidden bg-gray-100 border-[6px] border-white shadow-[0_15px_35px_rgba(4,51,26,0.08)] group-hover:shadow-[0_25px_50px_rgba(16,185,129,0.15)] group-hover:-translate-y-4 transition-all duration-500 ease-out z-10">
+              <div className="relative w-full aspect-[4/5] rounded-t-[5rem] rounded-b-2xl overflow-hidden bg-[#04331A]/5 border-[6px] border-white shadow-[0_20px_40px_-15px_rgba(4,51,26,0.1)] group-hover:shadow-[0_30px_50px_rgba(16,185,129,0.2)] group-hover:-translate-y-4 transition-all duration-500 ease-out z-10">
                 
                 <img 
                   src={faculty.img} 
@@ -108,9 +115,9 @@ const LecturersPage = () => {
                   className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-out"
                 />
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04331A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-lg">
-                  <span className="text-xs font-black text-[#04331A] uppercase tracking-widest whitespace-nowrap">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04331A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out bg-white/95 backdrop-blur-md px-5 py-2 rounded-full shadow-xl">
+                  <span className="text-[10px] font-black text-[#04331A] uppercase tracking-[0.2em] whitespace-nowrap">
                     {faculty.title}
                   </span>
                 </div>
@@ -121,9 +128,9 @@ const LecturersPage = () => {
                   {faculty.name}
                 </h3>
                 
-                <div className="w-8 h-1 bg-[#04331A] mt-3 rounded-full group-hover:w-full group-hover:bg-[#10B981] transition-all duration-500 ease-out"></div>
+                <div className="w-8 h-1 bg-[#04331A]/20 mt-3 rounded-full group-hover:w-full group-hover:bg-[#10B981] transition-all duration-500 ease-out"></div>
                 
-                <p className="text-sm font-semibold text-gray-500 text-center mt-3 leading-snug group-hover:text-gray-900 transition-colors duration-300">
+                <p className="text-sm font-semibold text-[#04331A]/60 text-center mt-3 leading-relaxed group-hover:text-[#04331A] transition-colors duration-300">
                   {faculty.specialty}
                 </p>
               </div>
