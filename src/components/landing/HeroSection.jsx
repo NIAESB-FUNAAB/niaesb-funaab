@@ -22,77 +22,50 @@ const HeroSection = () => {
 
   // 2D Spring Reveal for typography.
   const textRevealVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60, 
-      scale: 0.95 
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1, 
-      transition: { 
-        type: "spring", 
-        damping: 20, 
-        stiffness: 100, 
-        duration: 1 
-      } 
-    },
+    hidden: { opacity: 0, y: 60, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", damping: 20, stiffness: 100, duration: 1 } },
   };
 
   // Smooth blur-in for the subtext
   const blurInVariants = {
     hidden: { opacity: 0, filter: "blur(15px)", y: 20 },
-    visible: { 
-      opacity: 1, 
-      filter: "blur(0px)", 
-      y: 0,
-      transition: { duration: 1, ease: "easeOut" }
-    }
+    visible: { opacity: 1, filter: "blur(0px)", y: 0, transition: { duration: 1, ease: "easeOut" } }
   };
 
   // Explosive spring pop for the buttons
   const buttonGroupVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 20 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0,
-      transition: { type: "spring", damping: 12, stiffness: 150 }
-    }
+    visible: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", damping: 12, stiffness: 150 } }
   };
 
   return (
-    // SQUARE ONE: Back to "flex items-center". Changed mobile height to 100vh so content fits safely.
-    <section className="relative w-full h-[100vh] lg:h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+    // THE ULTIMATE FIX: 
+    // "block" kills flexbox vertical centering entirely on mobile so it doesn't bounce back up.
+    // "lg:flex lg:items-center" turns perfect centering back on for desktop.
+    <section className="relative w-full min-h-[100svh] block lg:flex lg:items-center overflow-hidden bg-[#04331A]">
       
-      {/* Video Background with slow zoom-out entrance */}
+      {/* Video Background */}
       <motion.div 
         initial={{ scale: 1.15 }}
         animate={{ scale: 1 }}
         transition={{ duration: 4, ease: "easeOut" }}
         className="absolute top-0 left-0 w-full h-full z-0"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="image_fff0e4.jpg"
-          className="w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline poster="image_fff0e4.jpg" className="w-full h-full object-cover">
           <source src={landingVideo} type="video/mp4" />
         </video>
       </motion.div>
 
-      {/* Complex Gradient Overlay */}
+      {/* Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full lg:pt-0">
-        
-        {/* THE FIX: translate-y-28 forcefully pushes the element down 112px on mobile, avoiding the header entirely */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center translate-y-28 lg:translate-y-0">
+      {/* 
+        THE PUSH: 
+        "pt-[180px]" forces the content to start exactly 180 pixels from the top on mobile. 
+        "lg:pt-0" resets this so it doesn't mess up desktop. 
+      */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full pt-[180px] pb-[60px] lg:pt-0 lg:pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <motion.div 
             className="lg:col-span-9 text-left flex flex-col items-start"
