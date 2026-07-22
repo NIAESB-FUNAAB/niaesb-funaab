@@ -63,7 +63,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+    <section className="relative w-full h-[90vh] min-h-[650px] flex items-center overflow-hidden">
       
       {/* Video Background with slow zoom-out entrance */}
       <motion.div 
@@ -87,8 +87,8 @@ const HeroSection = () => {
       {/* Complex Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#04331A]/95 via-[#04331A]/60 to-transparent z-10" />
 
-      {/* Main Container - Added pt-32 safe area for mobile so it doesn't overlap the header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full pt-32 lg:pt-0">
+      {/* Main Container - Increased pt-40 on mobile so text clears the fixed floating header */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full pt-40 lg:pt-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <motion.div 
@@ -112,7 +112,7 @@ const HeroSection = () => {
             
             <motion.p 
               variants={blurInVariants}
-              className="font-mono text-lg text-[#F0FDF4]/80 mb-10 max-w-2xl leading-relaxed tracking-wide"
+              className="font-mono text-base md:text-lg text-[#F0FDF4]/80 mb-10 max-w-2xl leading-relaxed tracking-wide"
             >
               Join the brightest minds. We are engineering the next generation of farm mechanization, ecological management, and sustainable bio-resources.
             </motion.p>
