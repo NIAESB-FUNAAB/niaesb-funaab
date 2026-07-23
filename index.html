@@ -2,9 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/public/logo.jpg" />
+    
+    <!-- 1. Fix for Vite: Assets in the public folder should be referenced from the root -->
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- 2. Primary Meta Tags for SEO -->
     <title>NIAESB FUNAAB</title>
+    <meta name="title" content="NIAESB FUNAAB" />
+    <meta name="description" content="Nigerian Institution of Agricultural Engineers Students' Branch (NIAESB) at the Federal University of Agriculture, Abeokuta (FUNAAB). Pay dues, access the e-library, and connect with peers." />
+    
+    <!-- 3. Structured Data (JSON-LD) for Google Sitelinks -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollegeOrUniversity",
+      "name": "NIAESB FUNAAB",
+      "url": "https://niaesbfunaab.dev",
+      "logo": "https://niaesbfunaab.dev/logo.jpg",
+      "description": "The student chapter of the Nigerian Institution of Agricultural Engineers at the Federal University of Agriculture, Abeokuta.",
+      "sameAs": [
+        "https://twitter.com/niaesbfunaab",
+        "https://linkedin.com/company/niaesbfunaab"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
