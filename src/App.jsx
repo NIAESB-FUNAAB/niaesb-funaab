@@ -10,6 +10,7 @@ import LevelDetails from './components/library/LevelDetails';
 import PayDues from './pages/PayDues';
 import ExcosPage from './pages/ExcosPage';
 import Auth from './pages/Auth';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
     <div className="relative w-full overflow-x-hidden min-h-screen flex flex-col font-sans">
       <Header />
 
-      <main className="flex-grow pt-28 md:pt-32">
+      <main className="grow pt-28 md:pt-32">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -32,6 +33,8 @@ function App() {
           <Route path="/pay-dues" element={<PayDues />} />
           <Route path="/excos" element={<ExcosPage />} />
           <Route path="/auth" element={<Auth />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
