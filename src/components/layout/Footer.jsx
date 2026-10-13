@@ -11,10 +11,9 @@ const Footer = () => {
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  // Added Career path to Navigation
   const footerLinks = {
     navigation: [
-      { name: 'System Home', path: '/' },
+      { name: 'Home', path: '/' },
       { name: 'About NIAESB', path: '/about' },
       { name: 'The Executives', path: '/excos' },
       { name: 'Blog & News', path: '/blog' },
@@ -23,7 +22,7 @@ const Footer = () => {
     resources: [
       { name: 'E-Library', path: '/library' },
       { name: 'Lecturers Directory', path: '/lecturers' },
-      { name: 'Portal: Pay Dues', path: '/pay-dues' },
+      { name: 'Pay Dues', path: '/pay-dues' },
       { name: 'Academic Calendar', path: '/calendar' },
     ],
     legal: [
@@ -154,16 +153,15 @@ const Footer = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-xl"
             >
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6 leading-[1.1]">
-                Cultivating the <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-white italic pr-2">Future</span> of Engineering.
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
+                NIAESB <span className="text-[#10B981]">FUNAAB</span>
               </h2>
-              <p className="text-white/60 text-lg leading-relaxed font-medium max-w-md">
-                Empowering technical excellence and driving sustainable innovation in agricultural and bio-resources.
+              <p className="text-white/70 text-base leading-relaxed max-w-md">
+                The official student body of the Department of Agricultural and Bio-Resources Engineering, Federal University of Agriculture, Abeokuta.
               </p>
             </motion.div>
             
-            {/* High-End Newsletter Input */}
+            {/* Newsletter Input */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -174,10 +172,10 @@ const Footer = () => {
               <div className="group relative bg-[#07562C]/30 border border-white/10 p-2 rounded-2xl flex items-center backdrop-blur-md max-w-md w-full focus-within:border-[#10B981]/50 focus-within:bg-[#07562C]/50 transition-all duration-300 shadow-inner">
                 <input 
                   type="email" 
-                  placeholder="Initialize datastream (Email)..." 
-                  className="bg-transparent border-none outline-none text-white px-4 w-full placeholder-white/30 text-sm font-medium tracking-wide"
+                  placeholder="Enter your email address..." 
+                  className="bg-transparent border-none outline-none text-white px-4 w-full placeholder-white/40 text-sm font-medium tracking-wide"
                 />
-                <button className="bg-[#10B981] hover:bg-white text-[#04331A] px-6 py-3 rounded-xl text-sm font-black uppercase tracking-wider transition-all duration-300 flex items-center gap-2 flex-shrink-0 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">
+                <button className="bg-[#10B981] hover:bg-white text-[#04331A] px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 flex-shrink-0 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">
                   Subscribe 
                   <FiArrowUpRight className="text-lg group-hover:rotate-45 transition-transform duration-300" />
                 </button>
@@ -188,13 +186,13 @@ const Footer = () => {
           {/* Middle Section: Links Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
             
-            {/* Contact Col (Takes up more space) */}
+            {/* Contact Col */}
             <motion.div 
               custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={columnVariants}
               className="lg:col-span-4 flex flex-col gap-6"
             >
-              <h3 className="text-[#10B981] font-black uppercase tracking-[0.2em] text-xs">Terminal / Contact</h3>
-              <div className="flex flex-col gap-5 text-white/60 text-sm font-medium">
+              <h3 className="text-[#10B981] font-bold uppercase tracking-[0.1em] text-sm">Contact Us</h3>
+              <div className="flex flex-col gap-5 text-white/70 text-sm font-medium">
                 <a href="mailto:NIAESBfunaab.25@gmail.com" className="flex items-center gap-4 hover:text-white transition-colors group w-fit">
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center group-hover:bg-[#10B981]/20 group-hover:border-[#10B981]/30 group-hover:text-[#10B981] transition-all duration-300">
                     <FiMail size={18} />
@@ -208,7 +206,7 @@ const Footer = () => {
                   <span className="leading-relaxed tracking-wide">
                     Federal University of Agriculture,<br />
                     Abeokuta (FUNAAB)<br />
-                    <span className="text-white/40 text-xs mt-1 block">Alabata Road, Ogun State.</span>
+                    <span className="text-white/50 text-xs mt-1 block">Alabata Road, Ogun State.</span>
                   </span>
                 </div>
               </div>
@@ -216,7 +214,7 @@ const Footer = () => {
 
             {/* Navigation Col */}
             <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={columnVariants} className="lg:col-span-2 lg:col-start-6 flex flex-col gap-6">
-              <h3 className="text-[#10B981] font-black uppercase tracking-[0.2em] text-xs">Directory</h3>
+              <h3 className="text-[#10B981] font-bold uppercase tracking-[0.1em] text-sm">Directory</h3>
               <ul className="flex flex-col gap-4">
                 {footerLinks.navigation.map((link) => (
                   <li key={link.name}>
@@ -231,7 +229,7 @@ const Footer = () => {
 
             {/* Resources Col */}
             <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={columnVariants} className="lg:col-span-3 flex flex-col gap-6">
-              <h3 className="text-[#10B981] font-black uppercase tracking-[0.2em] text-xs">Resources</h3>
+              <h3 className="text-[#10B981] font-bold uppercase tracking-[0.1em] text-sm">Resources</h3>
               <ul className="flex flex-col gap-4">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
@@ -246,7 +244,7 @@ const Footer = () => {
 
             {/* Legal Col */}
             <motion.div custom={3} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={columnVariants} className="lg:col-span-2 flex flex-col gap-6">
-              <h3 className="text-[#10B981] font-black uppercase tracking-[0.2em] text-xs">Legal</h3>
+              <h3 className="text-[#10B981] font-bold uppercase tracking-[0.1em] text-sm">Legal</h3>
               <ul className="flex flex-col gap-4">
                 {footerLinks.legal.map((link) => (
                   <li key={link.name}>
@@ -265,16 +263,16 @@ const Footer = () => {
             
             {/* Copyright & Dev Trigger */}
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
-              <p className="text-white/40 text-xs font-medium tracking-wide">
-                &copy; {currentYear} NIAESB FUNAAB. All systems operational.
+              <p className="text-white/50 text-xs font-medium tracking-wide">
+                &copy; {currentYear} NIAESB FUNAAB. All rights reserved.
               </p>
               <div className="hidden sm:block w-1 h-1 bg-white/20 rounded-full"></div>
               <button 
                 onClick={() => setIsDevModalOpen(true)} 
-                className="flex items-center gap-1.5 text-white/40 hover:text-[#10B981] transition-colors text-[10px] sm:text-xs font-black uppercase tracking-widest group"
+                className="flex items-center gap-1.5 text-white/50 hover:text-[#10B981] transition-colors text-[10px] sm:text-xs font-bold uppercase tracking-widest group"
               >
                 <FiCode className="group-hover:rotate-12 transition-transform" /> 
-                Built by <button>SEE HERE</button>
+                Built by <span>the Developer</span>
               </button>
             </div>
             

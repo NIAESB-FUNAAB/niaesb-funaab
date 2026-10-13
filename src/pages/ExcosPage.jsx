@@ -26,6 +26,7 @@ import hadiImg from '../assets/hoc/hadi.jpg';
 import akintolaImg from '../assets/executives/akintola.jpg';
 import gbengaImg from '../assets/hoc/gbenga.jpg';
 import timilehinImg from '../assets/hoc/timi.jpg';
+import jamesImg from '../assets/hoc/james.jpg';
 
 // DATA ARRAYS
 const topExecutives = [
@@ -56,7 +57,7 @@ const hocs = [
   { level: "400L", name: "Gbenga Michael Daniel", image: gbengaImg, status: "Active" },
   { level: "300L", name: "Akintola Emmanuel Iyanuoluwa", image: akintolaImg, status: "Active" },
   { level: "200L", name: "Adegbola Hadi Lawal", image: hadiImg, status: "Active" },
-  { level: "100L", name: "Awaiting Election", image: null, status: "Pending" },
+  { level: "100L", name: "Odogun James Obatide", image: jamesImg, status: "Active" },
 ];
 
 // ANIMATION VARIANTS
