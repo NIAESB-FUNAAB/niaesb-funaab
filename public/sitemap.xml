@@ -1,45 +1,43 @@
-https://niaesbfunaab.dev/
-    weekly
-    1.0
-  
-  
-  
-    https://niaesbfunaab.dev/about
-    monthly
-    0.8
-  
-  
-  
-    https://niaesbfunaab.dev/excos
-    monthly
-    0.8
-  
-  
-  
-    https://niaesbfunaab.dev/blog
-    weekly
-    0.9
-  
-
-  
-    https://niaesbfunaab.dev/lecturers
-    monthly
-    0.8
-  
-
-  
-    https://niaesbfunaab.dev/pay-dues
-    yearly
-    0.9
-  
-
-  
-    https://niaesbfunaab.dev/library
-    weekly
-    0.8
-  
-
-  
-    https://niaesbfunaab.dev/career
-    monthly
-    0.7
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://niaesbfunaab.dev/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/excos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/lecturers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/pay-dues</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/library</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://niaesbfunaab.dev/career</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

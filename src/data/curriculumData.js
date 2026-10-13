@@ -6,8 +6,8 @@ export const curriculumData = {
     description: "Freshman foundation courses in basic sciences, mathematics, and introductory engineering principles.",
     semesters: {
       first: [
-        { code: 'GNS 101', title: 'Use of English', units: 2, type: 'Theory', link: '#' },
         { code: 'GNS 111', title: 'Introduction to Social Problems', units: 1, type: 'Theory', link: 'https://drive.google.com/drive/folders/1sfeRYu4dCPXKMceCypWIi7aUmbL5W5VT' },
+        { code: 'GNS 101', title: 'Use of English', units: 2, type: 'Theory', link: 'https://drive.google.com/file/d/1Fv4PPO4fBXYhMfljshjexdtp9COQlxQd/view?usp=sharing' },
         { code: 'MCE 101', title: 'Introduction to Engineering Drawing', units: 2, type: 'Practical', link: '#' },
         { code: 'CHM 101', title: 'Introductory Physical Chemistry', units: 3, type: 'Theory', link: 'https://drive.google.com/drive/folders/1yab_-7Jo9GEyMTVtn8v1c2KaamXHsWCT' },
         { code: 'CHM 191', title: 'Practical Chemistry I', units: 1, type: 'Practical', link: '#' },
