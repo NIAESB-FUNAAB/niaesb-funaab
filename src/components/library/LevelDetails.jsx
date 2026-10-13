@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,6 +12,9 @@ const LevelDetails = () => {
   const levelInfo = curriculumData[levelId] || curriculumData["100"]; 
   const currentCourses = levelInfo.semesters[activeSemester];
 
+  // const freshManDetails = levelInfo.courses[freshManDetails];
+  // const newStudents = isActive.department[newStudents];
+  // const finalYearStudent = studentLevel.description[finalYearStudent];
   const customEase = [0.22, 1, 0.36, 1];
 
   const fadeUp = {

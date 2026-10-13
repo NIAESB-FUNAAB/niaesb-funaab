@@ -25,6 +25,8 @@ const SEO = ({ title, description, url }) => {
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description || defaultDesc} />
       <meta property="twitter:image" content="https://niaesbfunaab.dev/logo.png" />
+
+      <div></div>
     </Helmet>
   );
 };
