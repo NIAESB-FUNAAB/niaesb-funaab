@@ -111,7 +111,7 @@ const AboutPage = () => {
             className="text-4xl md:text-6xl lg:text-[5.5rem] font-black tracking-tighter text-white leading-[1.05] mb-8 drop-shadow-2xl"
           >
             Pioneering the future <br className="hidden md:block" />
-            of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-green-300 italic pr-4">Engineering.</span>
+            of <span>Engineering</span>
           </motion.h1>
 
           <motion.p 
@@ -120,7 +120,7 @@ const AboutPage = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: customEase }}
             className="text-base md:text-xl text-green-50/90 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-md"
           >
-            The foremost student body representing Agricultural and Bio-resources Engineering professionals at FUNAAB.
+            The foremost student body representing Agricultural and Bio-resources Engineering professionals at FUNAAB
           </motion.p>
         </div>
       </div>
@@ -164,7 +164,7 @@ const AboutPage = () => {
               <h2 className="text-sm font-black tracking-[0.2em] text-[#10B981] uppercase">Identity</h2>
             </div>
             <h3 className="text-4xl md:text-6xl font-black text-[#04331A] mb-8 leading-[1.05] tracking-tighter">
-              Building the <br /> <span className="text-[#07562C] italic">Next Gen.</span>
+              Building the <br /> <span>Next Generation</span>
             </h3>
             <p className="text-[#04331A]/70 text-lg leading-relaxed font-medium mb-6">
               The Nigerian Institution of Agricultural Engineers Students' Branch (NIAESB), FUNAAB, is the premier hub for future engineering leaders.
@@ -328,7 +328,7 @@ const AboutPage = () => {
             <h2 className="text-sm font-black tracking-[0.2em] text-[#10B981] uppercase mb-4">Metrics</h2>
             <h3 className="text-4xl md:text-5xl font-black text-white mb-6 leading-[1.1] tracking-tighter">
               Measurable <br />
-              <span className="text-[#10B981] italic">Excellence.</span>
+              <span>Excellence</span>
             </h3>
             <p className="text-white/60 text-lg leading-relaxed font-light mb-10">
               NIAESB FUNAAB contributes significantly to student development, creating distinct opportunities for skill acquisition, peer-to-peer mentorship, and technical readiness.

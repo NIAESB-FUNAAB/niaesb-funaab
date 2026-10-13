@@ -96,10 +96,10 @@ const HeroSection = () => {
                 className="font-mono text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F0FDF4] mb-6 leading-tight"
               >
                 Innovating the <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#A7F3D0] inline-block">
+                <span>
                   Future
                 </span> of Agricultural <br className="hidden lg:block"/>
-                and Bio-resources.
+                and Bio-resources
               </motion.h1>
             </div>
             

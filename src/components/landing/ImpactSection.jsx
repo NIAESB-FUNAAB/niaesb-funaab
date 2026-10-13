@@ -94,7 +94,7 @@ const ImpactSection = () => {
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
             className="text-4xl md:text-5xl font-extrabold text-[#04331A] tracking-tight"
           >
-            Our Impact at a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Glance</span>
+            Our Impact at a <span>Glance</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

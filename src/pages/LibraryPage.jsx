@@ -40,7 +40,7 @@ const ELibraryPage = () => {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#04331A] tracking-tighter leading-[1.1] mb-6">
               Access <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981] italic pr-2">
+              <span >
                 Course Resources
               </span>
             </h1>

@@ -57,7 +57,7 @@ const QuickAccess = () => {
           </motion.div>
 
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#04331A] tracking-tight">
-            Quick <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981]">Access</span>
+            Quick <span >Access</span>
           </h2>
           <p className="mt-4 text-lg text-[#04331A]/70 font-medium max-w-2xl mx-auto">
             Everything you need for a smooth academic session, right at your fingertips.

@@ -140,8 +140,8 @@ const ExcosPage = () => {
             className="text-4xl md:text-6xl lg:text-[5.5rem] font-black text-white tracking-tighter leading-[1.05] mb-8 drop-shadow-2xl"
           >
             Architects of <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-green-300 italic pr-2">
-              Excellence.
+            <span>
+              Excellence
             </span>
           </motion.h1>
           
@@ -173,7 +173,7 @@ const ExcosPage = () => {
           </div>
           
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#04331A] tracking-tighter leading-[1.1] mb-8">
-            Meet <span className="text-[#07562C] italic">Team Iconic.</span>
+            Meet <span>Team Iconic</span>
           </h3>
           
           <p className="text-lg md:text-xl text-[#04331A]/70 font-medium leading-relaxed">
@@ -304,7 +304,7 @@ const ExcosPage = () => {
                 <FiStar className="text-[#10B981]" /> Legacy
               </div>
               <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6">
-                Hall of <span className="text-[#10B981]">Fame.</span>
+                Hall of <span>Fame</span>
               </h2>
               <p className="text-white/70 font-medium text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                 Honoring the visionary leaders whose dedication and sacrifice built the foundation of our prestigious branch.
@@ -364,7 +364,7 @@ const ExcosPage = () => {
               </div>
               {/* FIX 3: Reduced mobile font size to 3xl to prevent word-wrap breaking */}
               <h2 className="text-3xl md:text-5xl font-black text-[#04331A] tracking-tight mb-4 break-words">
-                Class <span className="text-[#07562C]">Representatives.</span>
+                Class <span>Representatives</span>
               </h2>
               <p className="text-[#04331A]/60 font-medium text-base md:text-lg leading-relaxed">
                 The vital communication bridge linking the student body to the academic administration across all university levels.

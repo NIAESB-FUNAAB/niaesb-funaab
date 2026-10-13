@@ -112,7 +112,7 @@ const Footer = () => {
                 className="flex items-center justify-between px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:bg-[#10B981] hover:text-[#04331A] hover:border-[#10B981] transition-all duration-300 group"
               >
                 <div className="flex items-center gap-3 font-bold text-sm">
-                  <FiTwitter size={18} /> Twitter / X
+                  <FiTwitter size={18} /> X
                 </div>
                 <FiExternalLink className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
@@ -154,7 +154,7 @@ const Footer = () => {
               className="max-w-xl"
             >
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
-                NIAESB <span className="text-[#10B981]">FUNAAB</span>
+   NIAESB FUNAAB <span></span>
               </h2>
               <p className="text-white/70 text-base leading-relaxed max-w-md">
                 The official student body of the Department of Agricultural and Bio-Resources Engineering, Federal University of Agriculture, Abeokuta.

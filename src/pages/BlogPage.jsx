@@ -82,7 +82,7 @@ const BlogPage = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
             className="text-4xl md:text-5xl lg:text-6xl font-black text-[#04331A] tracking-tighter leading-tight mb-6"
           >
-            Events & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#07562C] italic">News.</span>
+            Events & <span>News</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}

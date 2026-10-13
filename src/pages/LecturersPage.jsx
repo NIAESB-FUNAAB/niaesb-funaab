@@ -78,8 +78,8 @@ const LecturersPage = () => {
             className="text-4xl md:text-5xl lg:text-7xl font-black text-[#04331A] tracking-tighter leading-[1.05] mb-6"
           >
             The Minds Behind <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#07562C] italic pr-2">
-              The Engineering.
+            <span>
+              The Engineering
             </span>
           </motion.h1>
 

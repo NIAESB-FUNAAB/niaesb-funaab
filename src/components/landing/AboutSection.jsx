@@ -66,11 +66,11 @@ const AboutSection = () => {
               
               <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#04331A] mb-8 leading-[1.05] tracking-tighter">
                 Engineering <br />
-                the <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#07562C] to-[#10B981] px-2">
+                the <>
                   Tomorrow
                   <span className="absolute bottom-1 left-0 w-full h-[0.15em] bg-[#10B981]/20 -z-10 rounded-sm skew-x-12"></span>
-                </span> <br />
-                of Agriculture.
+                </> <br />
+                of Agriculture
               </h3>
               
               <p className="text-[#04331A]/60 text-lg mb-12 leading-relaxed font-medium max-w-md">
@@ -81,7 +81,7 @@ const AboutSection = () => {
                 to="/about" 
                 className="group relative inline-flex items-center gap-4 text-[#04331A] font-bold text-sm tracking-widest uppercase hover:text-[#10B981] transition-colors duration-300"
               >
-                <span className="relative z-10">Initialize Full History</span>
+                <span className="relative z-10">See Full History</span>
                 <span className="w-12 h-[2px] bg-[#04331A] group-hover:bg-[#10B981] group-hover:w-16 transition-all duration-300 ease-out relative">
                   <span className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-current rotate-45 transform translate-x-[1px]"></span>
                 </span>
