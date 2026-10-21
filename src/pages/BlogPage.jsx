@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiCalendar, FiClock, FiMapPin, FiArrowRight, FiAward, FiVideo, FiFileText, FiInbox } from 'react-icons/fi';
 
 // Assets
-import swepImg from '../assets/events/swep-volleyball.jpg'; // Adjust asset path if needed
-import webinarImg from '../assets/events/asap-ewebinar.jpg';    // Adjust asset path if needed
-
+import swepImg from '../assets/events/swep-volleyball.jpg'; 
+import webinarImg from '../assets/events/asap-ewebinar.jpg';    
+import orientImg from '../assets/events/orientation.jpg';
 // DATA
 const pastEvents = [
   {
@@ -21,6 +21,19 @@ const pastEvents = [
     link: "https://meet.google.com/bym-buif-poi?hs=224",
     linkText: "Join / Access Session",
     image: webinarImg,
+  },
+  {
+    id: 2,
+    title: "DEPARTMENTAL ORIENTATION PROGRAM FOR FRESHMEN",
+    date: "Wednesday, 23th September 2026",
+    time: "1:00 PM",
+    location: "Elias Bogoro Auditorium [Elbog]",
+    category: "Conference",
+    icon: <FiVideo />,
+    content: "This is to inform all freshmen that Agricultural and bio resources engineering orientation, Attendance is compulsory. Please be punctual.",
+    link: "https://meet.google.com/bym-buif-poi?hs=224",
+    linkText: "Register",
+    image: orientImg,
   }
 ];
 
